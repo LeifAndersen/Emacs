@@ -14,7 +14,13 @@
 (setq-default show-trailing-whitespace t)
 (setq auto-mode-alist
       (cons '("\\.verilog$" . verilog-mode) auto-mode-alist))
+(setq auto-mode-alist
+      (cons '("\\.rkt" . scheme-mode) auto-mode-alist))
 
+;; Emacs Plugins
+(add-to-list 'load-path "~/.emacs.d/")
+(load "quack.el")
+(require 'quack)
 
 ;; For CEDET
 (load-file "~/cedet-1.1/common/cedet.el")
