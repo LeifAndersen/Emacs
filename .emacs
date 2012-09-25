@@ -21,6 +21,7 @@
 (add-to-list 'load-path "~/.emacs.d/")
 (load "quack.el")
 (require 'quack)
+(load-file "~/geiser-0.2.1/elisp/geiser.el")
 
 ;; For CEDET
 (load-file "~/cedet-1.1/common/cedet.el")
