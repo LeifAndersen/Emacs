@@ -16,12 +16,20 @@
       (cons '("\\.verilog$" . verilog-mode) auto-mode-alist))
 (setq auto-mode-alist
       (cons '("\\.rkt" . scheme-mode) auto-mode-alist))
+(column-number-mode)
+
+;; Greek Keybindings
+(global-set-key (kbd "<f9>") "λ")
+(global-set-key (kbd "<f8>") "σ")
+(global-set-key (kbd "<f7>") "κ")
+(global-set-key (kbd "<f6>") "ρ")
+(global-set-key (kbd "<f5>") "ς")
 
 ;; Emacs Plugins
+(load-file "~/geiser-0.2.1/elisp/geiser.el")
 (add-to-list 'load-path "~/.emacs.d/")
 (load "quack.el")
 (require 'quack)
-(load-file "~/geiser-0.2.1/elisp/geiser.el")
 
 ;; For CEDET
 (load-file "~/cedet-1.1/common/cedet.el")
