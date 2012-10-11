@@ -18,6 +18,10 @@
       (cons '("\\.rkt" . scheme-mode) auto-mode-alist))
 (column-number-mode)
 
+;; Convenience Keybindings
+(global-set-key "\C-c\C-v" 'compile)
+(global-set-key "\C-c\C-z" 'gdb)
+
 ;; Greek Keybindings
 (global-set-key (kbd "<f9>") "λ")
 (global-set-key (kbd "<f8>") "σ")
@@ -37,15 +41,16 @@
 (require 'semantic-gcc)
 (global-ede-mode 1)
 ;(semantic-load-enable-gaudy-code-helpers)
-;(semantic-load-enable-excessive-code-helpers)
-(semantic-load-enable-code-helpers)
+(semantic-load-enable-excessive-code-helpers)
+;(semantic-load-enable-code-helpers)
 (global-srecode-minor-mode 1)
 ;(semantic-idle-completions-mode 1)
 (add-hook 'c-mode-common-hook (lambda ()
                                 (local-set-key [(control return)] 'semantic-ia-complete-symbol)
                                 (local-set-key "\C-c?"            'semantic-ia-complete-symbol-menu)
                                 (local-set-key "\C-c>"            'semantic-complete-analyze-inline)
-                                (local-set-key "\C-cp"            'semantic-analyze-proto-impl-toggle)))
+                                (local-set-key "\C-cp"            'semantic-analyze-proto-impl-toggle)
+                                (local-set-key "\C-xp"            'semantic-complete-analyze-inline-idle)))
 (add-hook 'c-mode-common-hook (lambda ()
                                 (local-set-key "." 'semantic-complete-self-insert)
                                 (local-set-key ">" 'semantic-complete-self-insert)))
