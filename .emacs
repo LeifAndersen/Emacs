@@ -21,6 +21,7 @@
 ;; Convenience Keybindings
 (global-set-key "\C-c\C-v" 'compile)
 (global-set-key "\C-c\C-z" 'gdb)
+(global-set-key "\C-c\C-k" 'shell)
 
 ;; Greek Keybindings
 (global-set-key (kbd "<f9>") "λ")
