@@ -18,6 +18,12 @@
       (cons '("\\.rkt" . scheme-mode) auto-mode-alist))
 (column-number-mode)
 
+;; Spell checking
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'c-mode-common-hook 'flyspell-prog-mode)
+(add-hook 'verilog-mode 'flyspell-prog-mode)
+
 ;; Convenience Keybindings
 (global-set-key "\C-c\C-v\C-v" 'compile)
 (global-set-key "\C-c\C-v\C-c" 'gdb)
