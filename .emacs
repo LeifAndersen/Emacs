@@ -17,9 +17,6 @@
 (setq auto-mode-alist
       (cons '("\\.rkt" . scheme-mode) auto-mode-alist))
 (column-number-mode)
-(add-hook 'verilog-mode-hook
-          '(lambda ()
-             (setq tab-width 4)))
 
 ;; Convenience Keybindings
 (global-set-key "\C-c\C-v\C-v" 'compile)
