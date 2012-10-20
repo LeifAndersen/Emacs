@@ -50,6 +50,8 @@
 (global-set-key (kbd "<f7>") "κ")
 (global-set-key (kbd "<f6>") "ρ")
 (global-set-key (kbd "<f5>") "ς")
+(global-set-key (kbd "<C-f12>") "δ")
+(global-set-key (kbd "<C-f11>") "Δ")
 
 ;; Emacs Plugins
 (load-file "~/geiser-0.2.1/elisp/geiser.el")
