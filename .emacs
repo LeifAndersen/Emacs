@@ -13,8 +13,6 @@
 (setq-default indent-tabs-mode nil)
 (setq-default show-trailing-whitespace t)
 (setq auto-mode-alist
-      (cons '("\\.verilog$" . verilog-mode) auto-mode-alist))
-(setq auto-mode-alist
       (cons '("\\.rkt" . scheme-mode) auto-mode-alist))
 (column-number-mode)
 
@@ -30,6 +28,8 @@
 (global-set-key "\C-c\C-v\C-z" 'shell)
 
 ;; Verilog Mode Stuff
+(setq auto-mode-alist
+      (cons '("\\.verilog$" . verilog-mode) auto-mode-alist))
 (setq verilog-indent-level             4
       verilog-indent-level-module      4
       verilog-indent-level-declaration 4
