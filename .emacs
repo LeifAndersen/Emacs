@@ -13,6 +13,8 @@
 (setq-default indent-tabs-mode nil)
 (setq-default show-trailing-whitespace t)
 (setq auto-mode-alist
+      (cons '("\\.cu$" . c-mode) auto-mode-alist))
+(setq auto-mode-alist
       (cons '("\\.rkt" . scheme-mode) auto-mode-alist))
 (column-number-mode)
 
