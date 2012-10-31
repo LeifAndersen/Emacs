@@ -64,6 +64,7 @@
 (global-set-key (kbd "<C-f3>") "Γ")
 (global-set-key (kbd "<C-f2>") "γ")
 (global-set-key (kbd "<C-f1>") "ε")
+(global-set-key (kbd "<M-f12>") "ϵ")
 
 ;; Emacs Plugins
 (load-file "~/geiser-0.2.1/elisp/geiser.el")
