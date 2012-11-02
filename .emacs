@@ -16,6 +16,8 @@
       (cons '("\\.cu$" . c-mode) auto-mode-alist))
 (setq auto-mode-alist
       (cons '("\\.rkt" . scheme-mode) auto-mode-alist))
+(setq auto-mode-alist
+      (cons '("\\.rss" . xml-mode) auto-mode-alist))
 (column-number-mode)
 
 ;; Spell checking
