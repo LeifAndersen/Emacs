@@ -67,10 +67,15 @@
 (global-set-key (kbd "<M-f12>") "ϵ")
 
 ;; Emacs Plugins
-(load-file "~/geiser-0.2.1/elisp/geiser.el")
 (add-to-list 'load-path "~/.emacs.d/")
+(load-file "~/geiser-0.2.1/elisp/geiser.el")
 (load "quack.el")
 (require 'quack)
+(add-to-list 'load-path "~/magit-1.2.0")
+(require 'magit)
+(require 'magit-svn)
+(require 'magit-topgit)
+(require 'magit-stgit)
 (add-to-list 'load-path "~/emacs-jabber-0.8.91")
 (load "jabber-autoloads")
 ;(add-to-list 'load-path "~/gnutls-3.1.3")
