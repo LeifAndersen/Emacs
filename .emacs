@@ -81,6 +81,7 @@
 (add-to-list 'load-path "~/emacs-jabber-0.8.91")
 (load "jabber-autoloads")
 ;(add-to-list 'load-path "~/gnutls-3.1.3")
+(load "~/nxhtml/autostart.el")
 
 ;; For CEDET
 (load-file "~/cedet-1.1/common/cedet.el")
