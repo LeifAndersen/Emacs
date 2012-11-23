@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cp .emacs ~/.emacs
 cp .viper ~/.viper
@@ -12,6 +12,8 @@ unzip -o nxhtml-2.08-100425.zip -d ~/
 cd ~/cedet-1.1
 make
 cd ~/magit-1.2.0
+make
+cd ~/.emacs.d/scala-mode
 make
 cd ~/emacs-jabber-0.8.91
 ./configure
