@@ -74,7 +74,7 @@
 (load "quack.el")
 (require 'quack)
 (add-to-list 'load-path "~/.emacs.d/scala-mode/")
-(add-to-list 'load-path "~/.emacs.d/ensime/elisp/")
+(add-to-list 'load-path "~/.emacs.d/ensime-master/src/main/elisp/")
 (require 'scala-mode-auto)
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
