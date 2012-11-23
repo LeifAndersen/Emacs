@@ -73,6 +73,8 @@
 (load-file "~/geiser-0.2.1/elisp/geiser.el")
 (load "quack.el")
 (require 'quack)
+(add-to-list 'load-path "~/.emacs.d/scala-mode/")
+(require 'scala-mode-auto)
 (add-to-list 'load-path "~/magit-1.2.0")
 (require 'magit)
 (require 'magit-svn)
