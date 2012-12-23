@@ -88,6 +88,15 @@
 ;(add-to-list 'load-path "~/gnutls-3.1.3")
 ;(load "~/nxhtml/autostart.el")
 
+; Add cmake listfile names to the mode list.
+(setq auto-mode-alist
+	  (append
+	   '(("CMakeLists\\.txt\\'" . cmake-mode))
+	   '(("\\.cmake\\'" . cmake-mode))
+	   auto-mode-alist))
+
+(autoload 'cmake-mode "cmake-mode.el" t)
+
 ;; For CEDET
 (load-file "~/cedet-1.1/common/cedet.el")
 (require 'semantic-ia)
