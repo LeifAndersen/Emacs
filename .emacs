@@ -85,6 +85,9 @@
 (require 'magit-stgit)
 (add-to-list 'load-path "~/emacs-jabber-0.8.91")
 (load "jabber-autoloads")
+(autoload 'glsl-mode "glsl-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.vert\\'" . glsl-mode))
+(add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
 ;(add-to-list 'load-path "~/gnutls-3.1.3")
 ;(load "~/nxhtml/autostart.el")
 
