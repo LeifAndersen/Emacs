@@ -100,6 +100,13 @@
 
 (autoload 'cmake-mode "cmake-mode.el" t)
 
+;; Org mode
+;(org-indent-mode t)
+;(add-hook 'org-mode-hook (lambda ()
+;                           (org-indent-mode t))
+;          t)
+(setq org-startup-indented t)
+
 ;; For CEDET
 (load-file "~/cedet-1.1/common/cedet.el")
 (require 'semantic-ia)
