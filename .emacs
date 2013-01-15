@@ -88,15 +88,15 @@
 (autoload 'glsl-mode "glsl-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.vert\\'" . glsl-mode))
 (add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
-;(add-to-list 'load-path "~/gnutls-3.1.3")
-;(load "~/nxhtml/autostart.el")
+                                        ;(add-to-list 'load-path "~/gnutls-3.1.3")
+                                        ;(load "~/nxhtml/autostart.el")
 
-; Add cmake listfile names to the mode list.
+                                        ; Add cmake listfile names to the mode list.
 (setq auto-mode-alist
-	  (append
-	   '(("CMakeLists\\.txt\\'" . cmake-mode))
-	   '(("\\.cmake\\'" . cmake-mode))
-	   auto-mode-alist))
+      (append
+       '(("CMakeLists\\.txt\\'" . cmake-mode))
+       '(("\\.cmake\\'" . cmake-mode))
+       auto-mode-alist))
 
 (autoload 'cmake-mode "cmake-mode.el" t)
 
@@ -114,22 +114,41 @@
   (setq mouse-sel-mode t))
 
 ;; Org mode
-;(org-indent-mode t)
-;(add-hook 'org-mode-hook (lambda ()
-;                           (org-indent-mode t))
-;          t)
+                                        ;(org-indent-mode t)
+                                        ;(add-hook 'org-mode-hook (lambda ()
+                                        ;                           (org-indent-mode t))
+                                        ;          t)
 (setq org-startup-indented t)
+(require 'org-latex)
+(unless (boundp 'org-export-latex-classes)
+  (setq org-export-latex-classes nil))
+(add-to-list 'org-export-latex-classes
+             '("article"
+               "\\documentclass{article}"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
+             '("IEEE"
+               "\\documentclass[onecolumn,12pt]{IEEEtran}"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
 
 ;; For CEDET
 (load-file "~/cedet-1.1/common/cedet.el")
 (require 'semantic-ia)
 (require 'semantic-gcc)
 (global-ede-mode 1)
-;(semantic-load-enable-gaudy-code-helpers)
+                                        ;(semantic-load-enable-gaudy-code-helpers)
 (semantic-load-enable-excessive-code-helpers)
-;(semantic-load-enable-code-helpers)
+                                        ;(semantic-load-enable-code-helpers)
 (global-srecode-minor-mode 1)
-;(semantic-idle-completions-mode 1)
+                                        ;(semantic-idle-completions-mode 1)
 (add-hook 'c-mode-common-hook (lambda ()
                                 (local-set-key [(control return)] 'semantic-ia-complete-symbol)
                                 (local-set-key "\C-c?"            'semantic-ia-complete-symbol-menu)
