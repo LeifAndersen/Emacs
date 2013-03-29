@@ -104,14 +104,24 @@
 (unless window-system
   (require 'mouse)
   (xterm-mouse-mode t)
-  (global-set-key [mouse-4] '(lambda ()
-                               (interactive)
-                               (scroll-down 1)))
-  (global-set-key [mouse-5] '(lambda ()
-                               (interactive)
-                               (scroll-up 1)))
+;  (global-set-key [mouse-4] '(lambda ()
+;                               (interactive)
+;                               (scroll-down 1)))
+;  (global-set-key [mouse-5] '(lambda ()
+;                               (interactive)
+;                               (scroll-up 1)))
   (defun track-mode (e))
   (setq mouse-sel-mode t))
+
+(global-set-key [mouse-4] '(lambda ()
+                             (interactive)
+                             (scroll-down 1)))
+(global-set-key [mouse-5] '(lambda ()
+                             (interactive)
+                             (scroll-up 1)))
+
+(global-set-key [C-mouse-4] 'text-scale-increase)
+(global-set-key [C-mouse-5] 'text-scale-decrease)
 
 ;; Org mode
                                         ;(org-indent-mode t)
