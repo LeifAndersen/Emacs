@@ -19,6 +19,11 @@
 (setq auto-mode-alist
       (cons '("\\.rss$" . xml-mode) auto-mode-alist))
 (column-number-mode)
+(setq inhibit-startup-screen t)
+(setq inhibit-splash-screen t)
+(setq inhibit-startup-message t)
+(setq initial-scratch-message "")
+
 
 ;; Spell checking
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
