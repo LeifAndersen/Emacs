@@ -75,7 +75,7 @@
 
 ;; Emacs Plugins
 (add-to-list 'load-path "~/.emacs.d/")
-(load-file "~/geiser-0.2.1/elisp/geiser.el")
+(load-file "~/.emacs.d/geiser-0.2.1/elisp/geiser.el")
 (load "quack.el")
 (require 'quack)
 (add-to-list 'load-path "~/.emacs.d/scala-mode/")
@@ -83,12 +83,12 @@
 (require 'scala-mode-auto)
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-(add-to-list 'load-path "~/magit-1.2.0")
+(add-to-list 'load-path "~/.emacs.d/magit-1.2.0")
 (require 'magit)
 (require 'magit-svn)
 (require 'magit-topgit)
 (require 'magit-stgit)
-(add-to-list 'load-path "~/emacs-jabber-0.8.91")
+(add-to-list 'load-path "~/.emacs.d/emacs-jabber-0.8.91")
 (load "jabber-autoloads")
 (autoload 'glsl-mode "glsl-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.vert\\'" . glsl-mode))
@@ -104,6 +104,11 @@
        auto-mode-alist))
 
 (autoload 'cmake-mode "cmake-mode.el" t)
+
+(add-to-list 'load-path "~/.emacs.d/emacs-w3m-1.4.4")
+(require 'w3m-load)
+;(require 'mime-w3m)
+(setq mm-text-html-renderer 'w3m)
 
 ;; Proper xterm mouse support
 (unless window-system
@@ -155,7 +160,7 @@
 
 
 ;; For CEDET
-(load-file "~/cedet-1.1/common/cedet.el")
+(load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
 (require 'semantic-ia)
 (require 'semantic-gcc)
 (global-ede-mode 1)
