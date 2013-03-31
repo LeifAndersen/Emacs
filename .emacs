@@ -110,6 +110,16 @@
 ;(require 'mime-w3m)
 (setq mm-text-html-renderer 'w3m)
 
+(require 'newsticker)
+;(require 'w3m)
+(setq newsticker-html-renderer 'w3m-region)
+(setq newsticker-retrieval-interval 600)
+(setq newsticker-url-list-default nil)
+
+(global-set-key (kbd "C-c r") 'newsticker-treeview)
+(global-set-key (kbd "C-c C-r") 'newsticker-treeview)
+(newsticker-start)
+
 ;; Proper xterm mouse support
 (unless window-system
   (require 'mouse)
