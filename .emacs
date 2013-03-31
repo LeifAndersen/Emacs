@@ -105,20 +105,45 @@
 
 (autoload 'cmake-mode "cmake-mode.el" t)
 
-(add-to-list 'load-path "~/.emacs.d/emacs-w3m-1.4.4")
-(require 'w3m-load)
-;(require 'mime-w3m)
+(add-to-list 'load-path "~/.emacs.d/apel-10.8")
+(add-to-list 'load-path "~/.emacs.d/emi-1.14.6")
+(add-to-list 'load-path "~/.emacs.d/flim-1.14.9")
+
+(add-to-list 'load-path "~/.emacs.d/emacs-w3m")
+;(require 'w3m-load)
+(require 'w3m)
+(require 'mime-w3m)
 (setq mm-text-html-renderer 'w3m)
+(setq browse-url-browser-function 'w3m-browse-url)
+(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+;; optional keyboard short-cut
+(global-set-key "\C-xm" 'browse-url-at-point)
+(setq w3m-use-cookies t)
 
 (require 'newsticker)
 ;(require 'w3m)
 (setq newsticker-html-renderer 'w3m-region)
 (setq newsticker-retrieval-interval 600)
 (setq newsticker-url-list-default nil)
-
+(load-file "~/.emacs.d/opmlimport.el")
+(when (file-exists-p "~/subscriptions.xml")
+  (setq newsticker-url-list (opml-to-newsticker "~/subscriptions.xml")))
 (global-set-key (kbd "C-c r") 'newsticker-treeview)
 (global-set-key (kbd "C-c C-r") 'newsticker-treeview)
 (newsticker-start)
+
+(setq-default mode-line-format
+  (list
+    '(:eval (let ((unread (or (newsticker--stat-num-items-total 'new)
+                              0)))
+              (when (> unread 0)
+                (propertize
+                  ; Any text will do, be creative!
+                  (format "RSS: %d" unread)
+                  'face 'some-colorful-font-face
+                  'help-echo (format "You have %d unread RSS items!"
+                                     unread)
+                  'mouse-face 'mode-line-highlight))))))
 
 ;; Proper xterm mouse support
 (unless window-system
