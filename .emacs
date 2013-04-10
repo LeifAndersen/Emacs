@@ -35,6 +35,7 @@
 (global-set-key "\C-c\C-v\C-v" 'compile)
 (global-set-key "\C-c\C-v\C-c" 'gdb)
 (global-set-key "\C-c\C-v\C-z" 'shell)
+(global-set-key "\M-u" 'ucs-insert)
 
 ;; Verilog Mode Stuff
 (setq auto-mode-alist
@@ -72,6 +73,7 @@
 (global-set-key (kbd "<C-f2>") "γ")
 (global-set-key (kbd "<C-f1>") "ε")
 (global-set-key (kbd "<M-f12>") "ϵ")
+(global-set-key (kbd "<M-f11>") "Σ")
 
 ;; Emacs Plugins
 (add-to-list 'load-path "~/.emacs.d/")
@@ -109,6 +111,13 @@
 (add-to-list 'load-path "~/.emacs.d/emi-1.14.6")
 (add-to-list 'load-path "~/.emacs.d/flim-1.14.9")
 
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+
 (add-to-list 'load-path "~/.emacs.d/emacs-w3m")
 ;(require 'w3m-load)
 ;(require 'w3m)
@@ -132,18 +141,18 @@
 (global-set-key (kbd "C-c C-r") 'newsticker-treeview)
 (newsticker-start)
 
-(setq-default mode-line-format
-  (list
-    '(:eval (let ((unread (or (newsticker--stat-num-items-total 'new)
-                              0)))
-              (when (> unread 0)
-                (propertize
-                  ; Any text will do, be creative!
-                  (format "RSS: %d" unread)
-                  'face 'some-colorful-font-face
-                  'help-echo (format "You have %d unread RSS items!"
-                                     unread)
-                  'mouse-face 'mode-line-highlight))))))
+;(setq-default mode-line-format
+;  (list
+;    '(:eval (let ((unread (or (newsticker--stat-num-items-total 'new)
+;                              0)))
+;              (when (> unread 0)
+;                (propertize
+;                  ; Any text will do, be creative!
+;                  (format "RSS: %d" unread)
+;                  'face 'some-colorful-font-face
+;                  'help-echo (format "You have %d unread RSS items!"
+;                                     unread)
+;                  'mouse-face 'mode-line-highlight))))))
 
 ;; Proper xterm mouse support
 (unless window-system
