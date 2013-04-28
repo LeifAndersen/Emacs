@@ -4,7 +4,7 @@
 (setq c-default-style "linux"
       c-basic-offset 4)
 (setq-default tab-width 4)
-(set-default-font "Monospace 14")
+;(set-default-font "Monospace 14")
 (show-paren-mode t)
 (setq snake-score-file
       "~/.emacs.d/snake-scores")
@@ -24,6 +24,11 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
 
+(add-to-list 'load-path "~/.emacs.d/")
+
+; Better font and zooming
+(set-face-attribute 'default nil :font "Monospace 14")
+(load "better-zoom.el")
 
 ;; Spell checking
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
@@ -76,7 +81,6 @@
 (global-set-key (kbd "<M-f11>") "Σ")
 
 ;; Emacs Plugins
-(add-to-list 'load-path "~/.emacs.d/")
 (load-file "~/.emacs.d/geiser-0.2.1/elisp/geiser.el")
 (load "quack.el")
 (require 'quack)
@@ -106,6 +110,11 @@
        auto-mode-alist))
 
 (autoload 'cmake-mode "cmake-mode.el" t)
+(autoload 'csharp-mode "csharp-mode.el" t)
+(setq auto-mode-alist
+      (append
+       '(("\\.cs\\'" . csharp-mode))
+       auto-mode-alist))
 
 (add-to-list 'load-path "~/.emacs.d/apel-10.8")
 (add-to-list 'load-path "~/.emacs.d/emi-1.14.6")
@@ -189,18 +198,22 @@
 (add-to-list 'org-export-latex-classes
              '("article"
                "\\documentclass{article}"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))
-             '("IEEE"
-               "\\documentclass[onecolumn,12pt]{IEEEtran}"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+               ("\\section{%s}" . "\\section*{%s}")))
+;(add-to-list 'org-export-latex-classes
+;             '("article"
+;               "\\documentclass{article}"
+;               ("\\section{%s}" . "\\section*{%s}")
+;               ("\\subsection{%s}" . "\\subsection*{%s}")
+;               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+;               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+;               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+;             '("IEEE"
+;               "\\documentclass[onecolumn,12pt]{IEEEtran}"
+;               ("\\section{%s}" . "\\section*{%s}")
+;               ("\\subsection{%s}" . "\\subsection*{%s}")
+;               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+;               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+;               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 
 ;; For CEDET
