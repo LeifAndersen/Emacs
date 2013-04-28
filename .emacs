@@ -26,9 +26,6 @@
 
 (add-to-list 'load-path "~/.emacs.d/")
 
-; Better font and zooming
-(set-face-attribute 'default nil :font "Monospace 14")
-(load "better-zoom.el")
 
 ;; Spell checking
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
@@ -185,6 +182,10 @@
 
 (global-set-key [C-mouse-4] 'text-scale-increase)
 (global-set-key [C-mouse-5] 'text-scale-decrease)
+
+; Better font and zooming
+(set-face-attribute 'default nil :font "Monospace 14")
+(load-file "~/.emacs.d/better-zoom.el")
 
 ;; Org mode
                                         ;(org-indent-mode t)
