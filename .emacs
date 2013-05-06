@@ -184,7 +184,8 @@
 (global-set-key [C-mouse-5] 'text-scale-decrease)
 
 ; Better font and zooming
-(set-face-attribute 'default nil :font "Monospace 14")
+(when window-system
+  (set-face-attribute 'default nil :font "Monospace 14"))
 (load-file "~/.emacs.d/better-zoom.el")
 
 ;; Org mode
