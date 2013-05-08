@@ -238,3 +238,7 @@
                                 (local-set-key "." 'semantic-complete-self-insert)
                                 (local-set-key ">" 'semantic-complete-self-insert)))
 
+; Lightable (beta)
+(add-to-list 'load-path "~/.emacs.d//")
+(load-file "~/.emacs.d/dash.el/dash.el")
+; (load-file "~/.emacs.d/litable.el")
