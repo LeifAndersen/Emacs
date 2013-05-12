@@ -117,12 +117,18 @@
 (add-to-list 'load-path "~/.emacs.d/emi-1.14.6")
 (add-to-list 'load-path "~/.emacs.d/flim-1.14.9")
 
+; Markdown Support
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+
+; Arduino Support
+(load-file "~/.emacs.d/arduino-mode.el")
+(setq auto-mode-alist (cons '("\\.\\(pde\\|ino\\)$" . arduino-mode) auto-mode-alist))
+(autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t)
 
 (add-to-list 'load-path "~/.emacs.d/emacs-w3m")
 ;(require 'w3m-load)
@@ -241,4 +247,4 @@
 ; Lightable (beta)
 (add-to-list 'load-path "~/.emacs.d//")
 (load-file "~/.emacs.d/dash.el/dash.el")
-; (load-file "~/.emacs.d/litable.el")
+(load-file "~/.emacs.d/litable.el")
