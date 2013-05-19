@@ -189,6 +189,12 @@
 (global-set-key [C-mouse-4] 'text-scale-increase)
 (global-set-key [C-mouse-5] 'text-scale-decrease)
 
+; SSH config fiels
+(autoload 'ssh-config-mode "ssh-config-mode" t)
+(add-to-list 'auto-mode-alist '(".ssh/config\\'"  . ssh-config-mode))
+(add-to-list 'auto-mode-alist '("sshd?_config\\'" . ssh-config-mode))
+(add-hook 'ssh-config-mode-hook 'turn-on-font-lock)
+
 ; Better font and zooming
 (when window-system
   (set-face-attribute 'default nil :font "Monospace 14"))
