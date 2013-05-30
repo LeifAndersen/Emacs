@@ -99,7 +99,18 @@
                                         ;(add-to-list 'load-path "~/gnutls-3.1.3")
                                         ;(load "~/nxhtml/autostart.el")
 
-                                        ; Add cmake listfile names to the mode list.
+; k-mode
+;(setq load-path (cons "path/to/this/file" load-path))
+(load-library "k-mode")
+;(add-to-list 'auto-mode-alist '("\\.k$" . k-mode)) ;; to launch k-mode for .k files
+(setq k-path "~/bin/k-framework") ;; defaults to ~/k-framework
+
+; k3-mode
+;(setq load-path (cons "path/to/this/file" load-path))
+(load-library "k3-mode")
+(add-to-list 'auto-mode-alist '("\\.k$" . k3-mode)) ;; to launch k3-mode for .k files
+
+; Add cmake listfile names to the mode list.
 (setq auto-mode-alist
       (append
        '(("CMakeLists\\.txt\\'" . cmake-mode))
