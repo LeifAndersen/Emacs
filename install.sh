@@ -15,6 +15,8 @@ tar xvf semi-1.14.6.tar.gz -C ~/.emacs.d
 tar xvf apel-10.8.tar.gz -C ~/.emacs.d
 tar xvf flim-1.14.9.tar.gz -C ~/.emacs.d
 tar xvf dash.el.tar.gz -C ~/.emacs.d
+tar xvf yasnippet.tar.gz -C ~/.emacs.d
+tar xvf processing2-emacs.tar.gz -C ~/.emacs.d
 cd ~/.emacs.d/cedet-1.1
 make
 cd ~/.emacs.d/magit-1.2.0

@@ -135,12 +135,42 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+; Yasnippit
+(add-to-list 'load-path
+              "~/.emacs.d/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
+
 
 ; Arduino Support
 (load-file "~/.emacs.d/arduino-mode.el")
-(setq auto-mode-alist (cons '("\\.\\(pde\\|ino\\)$" . arduino-mode) auto-mode-alist))
+;(setq auto-mode-alist (cons '("\\.\\(pde\\|ino\\)$" . arduino-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.ino$" . auto-mode-alist) auto-mode-alist))
 (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t)
 
+; Processing Support
+(add-to-list 'load-path "~/.emacs.d/processing2-emacs/")
+(autoload 'processing-mode "processing-mode" "Processing mode" t)
+(add-to-list 'auto-mode-alist '("\\.pde$" . processing-mode))
+(setq processing-location "~/bin/processing-2.0/processing-java")
+(setq processing-application-dir "~/bin/processing-2.0/")
+(setq processing-sketch-dir "~/sketchbook")
+
+(autoload 'processing-snippets-initialize "processing-mode" nil nil nil)
+(eval-after-load 'yasnippet '(processing-snippets-initialize))
+
+(defun processing-mode-init ()
+  (make-local-variable 'ac-sources)
+  (setq ac-sources '(ac-source-dictionary ac-source-yasnippet))
+  (make-local-variable 'ac-user-dictionary)
+  (setq ac-user-dictionary processing-functions)
+  (setq ac-user-dictionary (append ac-user-dictionary processing-builtins))
+  (setq ac-user-dictionary (append ac-user-dictionary processing-constants)))
+
+(add-to-list 'ac-modes 'processing-mode)
+(add-hook 'processing-mode-hook 'processing-mode-init)
+
+; w3m
 (add-to-list 'load-path "~/.emacs.d/emacs-w3m")
 ;(require 'w3m-load)
 ;(require 'w3m)
