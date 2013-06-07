@@ -190,6 +190,8 @@
 (load-file "~/.emacs.d/opmlimport.el")
 (when (file-exists-p "~/subscriptions.xml")
   (setq newsticker-url-list (opml-to-newsticker "~/subscriptions.xml")))
+(when (file-exists-p "~/Dropbox/subscriptions.xml")
+  (setq newsticker-url-list (opml-to-newsticker "~/Dropbox/subscriptions.xml")))
 (global-set-key (kbd "C-c r") 'newsticker-treeview)
 (global-set-key (kbd "C-c C-r") 'newsticker-treeview)
 (newsticker-start)
