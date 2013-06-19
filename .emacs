@@ -26,6 +26,9 @@
 
 (add-to-list 'load-path "~/.emacs.d/")
 
+;; A bit for CEDET.
+(load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
+
 
 ;; Spell checking
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
@@ -249,7 +252,7 @@
                                         ;                           (org-indent-mode t))
                                         ;          t)
 (setq org-startup-indented t)
-(require 'org-latex)
+;(require 'org-latex)
 (unless (boundp 'org-export-latex-classes)
   (setq org-export-latex-classes nil))
 (add-to-list 'org-export-latex-classes
@@ -274,7 +277,6 @@
 
 
 ;; For CEDET
-(load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
 (require 'semantic-ia)
 (require 'semantic-gcc)
 (global-ede-mode 1)
