@@ -33,14 +33,18 @@
 ;; Spell checking
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'markdown-mode-hook 'flyspell-mode)
 (add-hook 'c-mode-common-hook 'flyspell-prog-mode)
 (add-hook 'verilog-mode 'flyspell-prog-mode)
+(add-hook 'java-mode-hook 'flyspell-prog-mode)
+(add-hook 'processing-mode-hook 'flyspell-prog-mode)
 
 ;; Convenience Keybindings
 (global-set-key "\C-c\C-v\C-v" 'compile)
 (global-set-key "\C-c\C-v\C-c" 'gdb)
 (global-set-key "\C-c\C-v\C-z" 'shell)
 (global-set-key "\M-u" 'ucs-insert)
+(global-set-key "\C-c\C-c\C-c" 'set-input-method)
 
 ;; Verilog Mode Stuff
 (setq auto-mode-alist
@@ -58,22 +62,35 @@
       verilog-minimum-comment-distance 40
       verilog-indent-begin-after-if    t
       verilog-auto-lineup              '(all))
+;(setq verilog-indent-level             4
+;      verilog-indent-level-module      4
+;      verilog-indent-level-declaration 4
+;      verilog-indent-level-behavioral  4
+;      verilog-indent-level-directive   4
+;      verilog-case-indent              4
+;      verilog-auto-newline             nil
+;      verilog-auto-indent-on-newline   nil
+;      verilog-tab-always-indent        t
+;      verilog-auto-endcomments         t
+;      verilog-minimum-comment-distance 40
+;      verilog-indent-begin-after-if    t
+;      verilog-auto-lineup              '(all))
 
 ;; Greek Keybindings
 (global-set-key (kbd "<f9>") "λ")
-(global-set-key (kbd "<f8>") "σ")
+(global-set-key (kbd "<f8>") "δ")
 (global-set-key (kbd "<f7>") "κ")
 (global-set-key (kbd "<f6>") "ρ")
 (global-set-key (kbd "<f5>") "ς")
-(global-set-key (kbd "<C-f12>") "δ")
+(global-set-key (kbd "<C-f12>") "σ")
 (global-set-key (kbd "<C-f11>") "Δ")
 (global-set-key (kbd "<C-f10>") "Ω")
 (global-set-key (kbd "<C-f9>") "ω")
-(global-set-key (kbd "<C-f8>") "Π")
-(global-set-key (kbd "<C-f7>") "π")
-(global-set-key (kbd "<C-f6>") "Θ")
-(global-set-key (kbd "<C-f5>") "θ")
-(global-set-key (kbd "<C-f4>") "μ")
+(global-set-key (kbd "<C-f8>") "π")
+(global-set-key (kbd "<c-f7>") "π")
+(global-set-key (kbd "<c-f6>") "θ")
+(global-set-key (kbd "<c-f5>") "θ")
+(global-set-key (kbd "<c-f4>") "μ")
 (global-set-key (kbd "<C-f3>") "Γ")
 (global-set-key (kbd "<C-f2>") "γ")
 (global-set-key (kbd "<C-f1>") "ε")
@@ -139,10 +156,10 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ; Yasnippit
-(add-to-list 'load-path
-              "~/.emacs.d/yasnippet")
-(require 'yasnippet)
-(yas-global-mode 1)
+;(add-to-list 'load-path
+;              "~/.emacs.d/yasnippet")
+;(require 'yasnippet)
+;(yas-global-mode 1)
 
 
 ; Arduino Support
