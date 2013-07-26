@@ -17,6 +17,7 @@ tar xvf flim-1.14.9.tar.gz -C ~/.emacs.d
 tar xvf dash.el.tar.gz -C ~/.emacs.d
 tar xvf yasnippet.tar.gz -C ~/.emacs.d
 tar xvf processing2-emacs.tar.gz -C ~/.emacs.d
+tar xvf auctex-11.87.tar.gz -C ~/.emacs.d
 cd ~/.emacs.d/cedet-1.1
 make
 cd ~/.emacs.d/magit-1.2.0
@@ -24,6 +25,9 @@ make
 cd ~/.emacs.d/scala-mode
 make
 cd ~/.emacs.d/emacs-jabber-0.8.91
+./configure
+make
+cd ~/.emacs.d/auctex-11.87
 ./configure
 make
 # cd ~/.emacs.d/emacs-w3m-1.4.4

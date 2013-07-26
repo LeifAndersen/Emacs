@@ -38,6 +38,7 @@
 (add-hook 'verilog-mode 'flyspell-prog-mode)
 (add-hook 'java-mode-hook 'flyspell-prog-mode)
 (add-hook 'processing-mode-hook 'flyspell-prog-mode)
+(add-hook 'scala-mode-hook 'flyspell-prog-mode)
 
 ;; Convenience Keybindings
 (global-set-key "\C-c\C-v\C-v" 'compile)
@@ -262,6 +263,11 @@
 (when window-system
   (set-face-attribute 'default nil :font "Monospace 14"))
 (load-file "~/.emacs.d/better-zoom.el")
+
+;; Auctex
+(add-to-list 'load-path "~/.emacs.d/auctex-11.87")
+(load "auctex.el" nil t t)
+(load "preview-latex.el" nil t t)
 
 ;; Org mode
                                         ;(org-indent-mode t)
