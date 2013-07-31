@@ -120,6 +120,16 @@
                                         ;(add-to-list 'load-path "~/gnutls-3.1.3")
                                         ;(load "~/nxhtml/autostart.el")
 
+; Fill Column Indicators
+; (add-to-list 'load-path "~/.emacs.d/Fill-Column-Indicator")
+; (require 'fill-column-indicator)
+; (add-hook 'after-change-major-mode-hook 'fci-mode)
+; (add-hook 'c-mode-hook 'fci-mode)
+; (define-globalized-minor-mode global-fci-mode fci-mode
+;   (lambda () (fci-mode 1)))
+; (global-fci-mode 1)
+; (setq fci-rule-column 80)
+
 ; k-mode
 ;(setq load-path (cons "path/to/this/file" load-path))
 (load-library "k-mode")
@@ -252,6 +262,10 @@
 
 (global-set-key [C-mouse-4] 'text-scale-increase)
 (global-set-key [C-mouse-5] 'text-scale-decrease)
+;(global-set-key [C-=] 'text-scale-increase)
+;(global-set-key [C-+] 'text-scale-increase)
+;(global-set-key [C--] 'text-scale-decrease)
+;(global-set-key [C-_] 'text-scale-decrease)
 
 ; SSH config fiels
 (autoload 'ssh-config-mode "ssh-config-mode" t)
@@ -268,6 +282,11 @@
 (add-to-list 'load-path "~/.emacs.d/auctex-11.87")
 (load "auctex.el" nil t t)
 (load "preview-latex.el" nil t t)
+
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+;(setq-default TeX-master nil)
+(setq TeX-PDF-mode t)
 
 ;; Org mode
                                         ;(org-indent-mode t)
