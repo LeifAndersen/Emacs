@@ -32,6 +32,7 @@
 
 ;; Spell checking
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'bibtex-mode-hook 'flyspell-mode)
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
 (add-hook 'c-mode-common-hook 'flyspell-prog-mode)
@@ -287,6 +288,17 @@
 (setq TeX-parse-self t)
 ;(setq-default TeX-master nil)
 (setq TeX-PDF-mode t)
+;(setq TeX-engine 'xetex)
+
+(defun tex-engine-xetex ()
+  "Set the latex rendering engine to xetex"
+  (interactive)
+  (setq TeX-engine 'xetex))
+
+;(defun tex-engine (mode)
+;  "Set the latex rendering engine"
+;  (interactive "sRendering Engine: \n")
+;  (setq TeX-engine mode))
 
 ;; Org mode
                                         ;(org-indent-mode t)
