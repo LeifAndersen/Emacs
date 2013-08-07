@@ -29,6 +29,19 @@
 ;; A bit for CEDET.
 (load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
 
+; Markdown Support
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-hook 'markdown-mode-hook
+          (lambda ()
+            (when buffer-file-name
+              (add-hook 'after-save-hook
+                        'check-parens
+                        nil t))))
+
 
 ;; Spell checking
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
@@ -159,13 +172,6 @@
 (add-to-list 'load-path "~/.emacs.d/apel-10.8")
 (add-to-list 'load-path "~/.emacs.d/emi-1.14.6")
 (add-to-list 'load-path "~/.emacs.d/flim-1.14.9")
-
-; Markdown Support
-(autoload 'markdown-mode "markdown-mode"
-  "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ; Yasnippit
 ;(add-to-list 'load-path
