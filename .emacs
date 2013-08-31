@@ -295,6 +295,10 @@
 
 ;; Auctex
 (add-to-list 'load-path "~/.emacs.d/auctex-11.87")
+(add-to-list 'load-path "~/.emacs.d/auctex-11.87/preview")
+(add-to-list 'load-path "~/.emacs.d/auctex-11.87/style")
+(add-to-list 'load-path "~/.emacs.d/auctex-11.87/images")
+(add-to-list 'load-path "~/.emacs.d/auctex-11.87/doc")
 (load "auctex.el" nil t t)
 (load "preview-latex.el" nil t t)
 
