@@ -32,6 +32,10 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
 
+; Up max space
+(setq max-lisp-eval-depth '40000)
+(setq max-specpdl-size '100000)
+
 (add-to-list 'load-path "~/.emacs.d/")
 
 ;; A bit for CEDET.
@@ -124,9 +128,9 @@
 (load-file "~/.emacs.d/geiser-0.2.1/elisp/geiser.el")
 (load "quack.el")
 (require 'quack)
-(add-to-list 'load-path "~/.emacs.d/scala-mode/")
+;(add-to-list 'load-path "~/.emacs.d/scala-mode/")
 (add-to-list 'load-path "~/.emacs.d/ensime-master/src/main/elisp/")
-(require 'scala-mode-auto)
+;(require 'scala-mode-auto)
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 (add-to-list 'load-path "~/.emacs.d/magit-1.2.0")
