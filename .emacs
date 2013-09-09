@@ -65,6 +65,8 @@
 (add-hook 'java-mode-hook 'flyspell-prog-mode)
 (add-hook 'processing-mode-hook 'flyspell-prog-mode)
 (add-hook 'scala-mode-hook 'flyspell-prog-mode)
+(add-hook 'scheme-mode-hook 'flyspell-prog-mode)
+
 
 ;; Convenience Keybindings
 (global-set-key "\C-c\C-v\C-v" 'compile)
