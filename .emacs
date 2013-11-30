@@ -5,6 +5,12 @@
 (package-initialize)
 (unless (package-installed-p 'scala-mode2)
   (package-refresh-contents) (package-install 'scala-mode2))
+(unless (package-installed-p 'clojure-mode)
+  (package-refresh-contents)
+  (package-install 'clojure-mode))
+(unless (package-installed-p 'haskell-mode)
+  (package-refresh-contents)
+  (package-install 'haskell-mode))
 
 (setq viper-mode t)
 (require 'viper)
@@ -65,7 +71,8 @@
 (add-hook 'java-mode-hook 'flyspell-prog-mode)
 (add-hook 'processing-mode-hook 'flyspell-prog-mode)
 (add-hook 'scala-mode-hook 'flyspell-prog-mode)
-(add-hook 'scheme-mode-hook 'flyspell-prog-mode)
+(add-hook 'scheme-mode-hook 'flyspell-mode)
+(add-hook 'python-mode-hook 'flyspell-prog-mod)
 
 
 ;; Convenience Keybindings
@@ -196,6 +203,7 @@
 
 ; Arduino Support
 (load-file "~/.emacs.d/arduino-mode.el")
+(setq auto-mode-alist (cons '("\\.pde$" . arduino-mode) auto-mode-alist))
 ;(setq auto-mode-alist (cons '("\\.\\(pde\\|ino\\)$" . arduino-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.ino$" . auto-mode-alist) auto-mode-alist))
 (autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t)
@@ -324,6 +332,11 @@
 ;  (interactive "sRendering Engine: \n")
 ;  (setq TeX-engine mode))
 
+(defun tex-input ()
+  "Set the input mode to TeX style input."
+  (interactive)
+  (set-input-method 'TeX))
+
 ;; Org mode
                                         ;(org-indent-mode t)
                                         ;(add-hook 'org-mode-hook (lambda ()
@@ -353,6 +366,8 @@
 ;               ("\\paragraph{%s}" . "\\paragraph*{%s}")
 ;               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
+;; Graphviz
+(setq graphviz-dot-auto-indent-on-semi nil)
 
 ;; For CEDET
 (require 'semantic-ia)
@@ -369,11 +384,23 @@
                                 (local-set-key "\C-c>"            'semantic-complete-analyze-inline)
                                 (local-set-key "\C-cp"            'semantic-analyze-proto-impl-toggle)
                                 (local-set-key "\C-xp"            'semantic-complete-analyze-inline-idle)))
-(add-hook 'c-mode-common-hook (lambda ()
-                                (local-set-key "." 'semantic-complete-self-insert)
-                                (local-set-key ">" 'semantic-complete-self-insert)))
+;(add-hook 'c-mode-common-hook (lambda ()
+;                                (local-set-key "." 'semantic-complete-self-insert)
+;                                (local-set-key ">" 'semantic-complete-self-insert)))
 
 ; Lightable (beta)
 (add-to-list 'load-path "~/.emacs.d//")
 (load-file "~/.emacs.d/dash.el/dash.el")
 (load-file "~/.emacs.d/litable.el")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(quack-programs (quote ("mzscheme" "bigloo" "csi" "csi -hygienic" "gosh" "gracket" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "racket" "racket -il typed/racket" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
