@@ -291,6 +291,8 @@
 
 (global-set-key [C-mouse-4] 'text-scale-increase)
 (global-set-key [C-mouse-5] 'text-scale-decrease)
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C-=") 'text-scale-decrease)
 ;(global-set-key [C-=] 'text-scale-increase)
 ;(global-set-key [C-+] 'text-scale-increase)
 ;(global-set-key [C--] 'text-scale-decrease)
@@ -404,3 +406,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; Whiespace
+(load-file "~/.emacs.d/show-whitespace.el")
