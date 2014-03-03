@@ -408,4 +408,4 @@
  )
 
 ;; Whiespace
-(load-file "~/.emacs.d/show-whitespace.el")
+(load-file "~/.emacs.d/show-whitespace-mode.el")
