@@ -310,19 +310,21 @@
 (load-file "~/.emacs.d/better-zoom.el")
 
 ;; Auctex
-(add-to-list 'load-path "~/.emacs.d/auctex-11.87")
-(add-to-list 'load-path "~/.emacs.d/auctex-11.87/preview")
-(add-to-list 'load-path "~/.emacs.d/auctex-11.87/style")
-(add-to-list 'load-path "~/.emacs.d/auctex-11.87/images")
-(add-to-list 'load-path "~/.emacs.d/auctex-11.87/doc")
-(load "auctex.el" nil t t)
-(load "preview-latex.el" nil t t)
+(when (file-exists-p "~/.emacs.d/auctex-11.87/preview/preview-latex.el")
+  (add-to-list 'load-path "~/.emacs.d/auctex-11.87")
+  (add-to-list 'load-path "~/.emacs.d/auctex-11.87/preview")
+  (add-to-list 'load-path "~/.emacs.d/auctex-11.87/style")
+  (add-to-list 'load-path "~/.emacs.d/auctex-11.87/images")
+  (add-to-list 'load-path "~/.emacs.d/auctex-11.87/doc")
+  (load "auctex.el" nil t t)
+  (load "preview-latex.el" nil t t)
 
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-;(setq-default TeX-master nil)
-(setq TeX-PDF-mode t)
-;(setq TeX-engine 'xetex)
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  ;(setq-default TeX-master nil)
+  (setq TeX-PDF-mode t)
+  ;(setq TeX-engine 'xetex)
+  )
 
 (defun tex-engine-xetex ()
   "Set the latex rendering engine to xetex"
