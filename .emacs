@@ -176,6 +176,12 @@
 (load-library "k3-mode")
 (add-to-list 'auto-mode-alist '("\\.k$" . k3-mode)) ;; to launch k3-mode for .k files
 
+; PHP
+(setq auto-mode-alist
+      (append
+       '(("\\.php\\'" . html-mode))
+       auto-mode-alist))
+
 ; Add cmake listfile names to the mode list.
 (setq auto-mode-alist
       (append
