@@ -182,6 +182,10 @@
        '(("\\.php\\'" . html-mode))
        auto-mode-alist))
 
+; Scribble
+(load-file "~/.emacs.d/scribble.el")
+(add-to-list 'auto-mode-alist '("\\.scrbl" . scribble-mode))
+
 ; Add cmake listfile names to the mode list.
 (setq auto-mode-alist
       (append
