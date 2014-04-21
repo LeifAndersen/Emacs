@@ -421,3 +421,9 @@
 
 ;; Whiespace
 (load-file "~/.emacs.d/show-whitespace-mode.el")
+
+(require 'geiser-impl)
+(quack-add-auto-mode-alist '(("\\.ms\\'"  . scheme-mode)))
+(geiser-impl--add-to-alist 'regexp "\\.ms$" 'racket t)
+(quack-add-auto-mode-alist '(("\\.plot\\'"  . scheme-mode)))
+(geiser-impl--add-to-alist 'regexp "\\.plot$" 'racket t)
