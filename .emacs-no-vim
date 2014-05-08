@@ -61,6 +61,10 @@
                         nil t))))
 
 
+; Scribble
+(load-file "~/.emacs.d/scribble.el")
+(add-to-list 'auto-mode-alist '("\\.scrbl" . scribble-mode))
+
 ;; Spell checking
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'bibtex-mode-hook 'flyspell-mode)
@@ -73,7 +77,7 @@
 (add-hook 'scala-mode-hook 'flyspell-prog-mode)
 (add-hook 'scheme-mode-hook 'flyspell-mode)
 (add-hook 'python-mode-hook 'flyspell-prog-mod)
-
+(add-hook 'scribble-mode-hook 'flyspell-mode)
 
 ;; Convenience Keybindings
 (global-set-key "\C-c\C-v\C-v" 'compile)
@@ -181,10 +185,6 @@
       (append
        '(("\\.php\\'" . html-mode))
        auto-mode-alist))
-
-; Scribble
-(load-file "~/.emacs.d/scribble.el")
-(add-to-list 'auto-mode-alist '("\\.scrbl" . scribble-mode))
 
 ; Add cmake listfile names to the mode list.
 (setq auto-mode-alist
