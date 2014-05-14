@@ -264,7 +264,7 @@
   (setq newsticker-url-list (opml-to-newsticker "~/Dropbox/subscriptions.xml")))
 (global-set-key (kbd "C-c r") 'newsticker-treeview)
 (global-set-key (kbd "C-c C-r") 'newsticker-treeview)
-(newsticker-start)
+;(newsticker-start)
 
 ;(setq-default mode-line-format
 ;  (list
