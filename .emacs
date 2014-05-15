@@ -356,6 +356,9 @@
   (interactive)
   (set-input-method 'latin-prefix))
 
+(global-set-key (kbd "M-c") 'tex-input)
+(global-set-key (kbd "M-v") 'non-tex-input)
+
 ;; Org mode
                                         ;(org-indent-mode t)
                                         ;(add-hook 'org-mode-hook (lambda ()
