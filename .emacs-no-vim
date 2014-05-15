@@ -264,7 +264,7 @@
   (setq newsticker-url-list (opml-to-newsticker "~/Dropbox/subscriptions.xml")))
 (global-set-key (kbd "C-c r") 'newsticker-treeview)
 (global-set-key (kbd "C-c C-r") 'newsticker-treeview)
-(newsticker-start)
+;(newsticker-start)
 
 ;(setq-default mode-line-format
 ;  (list
@@ -350,6 +350,14 @@
   "Set the input mode to TeX style input."
   (interactive)
   (set-input-method 'TeX))
+
+(defun non-tex-input ()
+  "Set the input mode to not TeX input."
+  (interactive)
+  (set-input-method 'latin-prefix))
+
+(global-set-key (kbd "M-c") 'tex-input)
+(global-set-key (kbd "M-v") 'non-tex-input)
 
 ;; Org mode
                                         ;(org-indent-mode t)
