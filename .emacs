@@ -351,6 +351,11 @@
   (interactive)
   (set-input-method 'TeX))
 
+(defun non-tex-input ()
+  "Set the input mode to not TeX input."
+  (interactive)
+  (set-input-method 'latin-prefix))
+
 ;; Org mode
                                         ;(org-indent-mode t)
                                         ;(add-hook 'org-mode-hook (lambda ()
