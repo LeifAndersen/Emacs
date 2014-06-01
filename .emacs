@@ -426,6 +426,7 @@
                                 (local-set-key "\C-c?"            'semantic-ia-complete-symbol-menu)
                                 (local-set-key "\C-c>"            'semantic-complete-analyze-inline)
                                 (local-set-key "\C-cp"            'semantic-analyze-proto-impl-toggle)
+                                (local-set-key "\C-cd"            'semantic-ia-fast-jump)
                                 (local-set-key "\C-xp"            'semantic-complete-analyze-inline-idle)))
 ;(add-hook 'c-mode-common-hook (lambda ()
 ;                                (local-set-key "." 'semantic-complete-self-insert)
