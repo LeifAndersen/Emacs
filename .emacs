@@ -16,7 +16,7 @@
 (require 'viper)
 (global-linum-mode t)
 (setq c-default-style "linux"
-      c-basic-offset 4)
+      c-basic-offset 2)
 (setq-default tab-width 4)
 ;(set-default-font "Monospace 14")
 (show-paren-mode t)
@@ -43,6 +43,12 @@
 (setq max-specpdl-size '100000)
 
 (add-to-list 'load-path "~/.emacs.d/")
+
+(defun c-offset-4 ()
+  "Set the c-basic-offset to 4"
+  (interactive)
+  (setq c-basic-offset 2))
+
 
 ;; A bit for CEDET.
 (load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
