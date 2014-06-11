@@ -11,6 +11,9 @@
 (unless (package-installed-p 'haskell-mode)
   (package-refresh-contents)
   (package-install 'haskell-mode))
+(unless (package-installed-p 'exec-path-from-shell)
+  (package-refresh-contents)
+  (package-install 'exec-path-from-shell))
 
 (setq viper-mode t)
 (require 'viper)
@@ -18,7 +21,7 @@
 (setq c-default-style "linux"
       c-basic-offset 2)
 (setq-default tab-width 4)
-;(set-default-font "Monospace 14")
+(set-default-font "Monospace 26")
 (show-paren-mode t)
 (setq snake-score-file
       "~/.emacs.d/snake-scores")
@@ -37,6 +40,7 @@
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
+(exec-path-from-shell-copy-env "PATH")
 
 ; Up max space
 (setq max-lisp-eval-depth '40000)
@@ -337,7 +341,7 @@
 
 ; Better font and zooming
 (when window-system
-  (set-face-attribute 'default nil :font "Monospace 14"))
+  (set-face-attribute 'default nil :font "Monospace 28"))
 (load-file "~/.emacs.d/better-zoom.el")
 
 ;; Auctex
@@ -457,3 +461,4 @@
 (geiser-impl--add-to-alist 'regexp "\\.ms$" 'racket t)
 (quack-add-auto-mode-alist '(("\\.plot\\'"  . scheme-mode)))
 (geiser-impl--add-to-alist 'regexp "\\.plot$" 'racket t)
+(set-default-font "Monospace 26")
