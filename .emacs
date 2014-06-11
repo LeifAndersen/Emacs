@@ -462,3 +462,12 @@
 (quack-add-auto-mode-alist '(("\\.plot\\'"  . scheme-mode)))
 (geiser-impl--add-to-alist 'regexp "\\.plot$" 'racket t)
 (set-default-font "Monospace 26")
+
+
+(when (eq system-type 'darwin)
+; setting Super ＆ Hyper keys for Apple keyboard, for emacs running in OS X
+  (setq mac-command-modifier 'meta) ; sets the Command key to Meta
+  (setq mac-option-modifier 'super) ; sets the Option key to Super
+  (setq mac-control-modifier 'control) ; sets the Control key to Control
+  (setq ns-function-modifier 'hyper)  ; set Mac's Fn key to Hyper
+)
