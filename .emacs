@@ -15,8 +15,7 @@
   (package-refresh-contents)
   (package-install 'exec-path-from-shell))
 
-(setq viper-mode t)
-(require 'viper)
+(load-file "~/.emacs.d/include-viper.el")
 (global-linum-mode t)
 (setq c-default-style "linux"
       c-basic-offset 2)
@@ -63,11 +62,15 @@
   (interactive)
   (setq-default tab-width 8))
 
-(defun c-offset-4 ()
-  "Set the c-basic-offset to 4"
+(defun c-offset-2 ()
+  "Set the c-basic-offset to 2"
   (interactive)
   (setq c-basic-offset 2))
 
+(defun c-offset-4 ()
+  "Set the c-basic-offset to 4"
+  (interactive)
+  (setq c-basic-offset 4))
 
 ;; A bit for CEDET.
 (load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
