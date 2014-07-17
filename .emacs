@@ -350,7 +350,7 @@
 
 ; Better font and zooming
 (when window-system
-  (set-face-attribute 'default nil :font "Monospace 28"))
+  (set-face-attribute 'default nil :font "Monospace 26" :height 250))
 (load-file "~/.emacs.d/better-zoom.el")
 
 ;; Auctex
@@ -474,9 +474,14 @@
 
 
 (when (eq system-type 'darwin)
-; setting Super ＆ Hyper keys for Apple keyboard, for emacs running in OS X
+; setting Super & Hyper keys for Apple keyboard, for emacs running in OS X
   (setq mac-command-modifier 'meta) ; sets the Command key to Meta
   (setq mac-option-modifier 'super) ; sets the Option key to Super
   (setq mac-control-modifier 'control) ; sets the Control key to Control
   (setq ns-function-modifier 'hyper)  ; set Mac's Fn key to Hyper
 )
+
+(defun fix-font ()
+  "Temporary function to fix small font when opening a new window"
+  (interactive)
+  (set-face-attribute 'default nil :font "Monospace 26" :height 280))
