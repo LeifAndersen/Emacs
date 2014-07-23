@@ -20,7 +20,10 @@
 (setq c-default-style "linux"
       c-basic-offset 2)
 (setq-default tab-width 4)
-(set-default-font "Monospace 26")
+(unless (eq system-type 'darwin)
+  (set-default-font "Monospace 16"))
+(when (eq system-type 'darwin)
+  (set-default-font "Monospace 26"))
 (show-paren-mode t)
 (setq snake-score-file
       "~/.emacs.d/snake-scores")
@@ -350,7 +353,10 @@
 
 ; Better font and zooming
 (when window-system
-  (set-face-attribute 'default nil :font "Monospace 26" :height 250))
+  (unless (eq system-type 'darwin)
+    (set-face-attribute 'default nil :font "Monospace 16"))
+  (when (eq system-type 'darwin)
+    (set-face-attribute 'default nil :font "Monospace 26" :height 250)))
 (load-file "~/.emacs.d/better-zoom.el")
 
 ;; Auctex
@@ -470,7 +476,10 @@
 (geiser-impl--add-to-alist 'regexp "\\.ms$" 'racket t)
 (quack-add-auto-mode-alist '(("\\.plot\\'"  . scheme-mode)))
 (geiser-impl--add-to-alist 'regexp "\\.plot$" 'racket t)
-(set-default-font "Monospace 26")
+(unless (eq system-type 'darwin)
+  (set-default-font "Monospace 16"))
+(when (eq system-type 'dawrin)
+  (set-default-font "Monospace 26"))
 
 
 (when (eq system-type 'darwin)
@@ -484,4 +493,7 @@
 (defun fix-font ()
   "Temporary function to fix small font when opening a new window"
   (interactive)
-  (set-face-attribute 'default nil :font "Monospace 26" :height 280))
+  (unless (eq system-type 'darwin)
+    (set-face-attribute 'default nil :font "Monospace 16"))
+  (when (eq system-type 'darwin)
+    (set-face-attribute 'default nil :font "Monospace 26" :height 280)))
