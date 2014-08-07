@@ -216,6 +216,23 @@
 (load-library "k3-mode")
 (add-to-list 'auto-mode-alist '("\\.k$" . k3-mode)) ;; to launch k3-mode for .k files
 
+; Paredit
+(load-file "~/.emacs.d/paredit.el")
+(load-file "~/.emacs.d/paredit-viper-compat.el")
+(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+(add-hook 'geiser-mode-hook           #'enable-paredit-mode)
+
+(eval-after-load 'paredit
+  '(progn
+     (require 'paredit-viper-compat)
+     (add-hook 'paredit-mode-hook #'paredit-viper-compat)))
+
 ; PHP
 (setq auto-mode-alist
       (append
