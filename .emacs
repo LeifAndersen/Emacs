@@ -23,7 +23,7 @@
 (unless (eq system-type 'darwin)
   (set-default-font "Monospace 16"))
 (when (eq system-type 'darwin)
-  (set-default-font "Monospace 26"))
+  (set-default-font "Monospace 25"))
 (show-paren-mode t)
 (setq snake-score-file
       "~/.emacs.d/snake-scores")
@@ -171,6 +171,9 @@
 (global-set-key (kbd "<M-f11>") "Σ")
 
 ;; Emacs Plugins
+(require 'generic-x)
+(load-file "~/.emacs.d/shill-mode.el")
+(require 'shill-mode)
 (load-file "~/.emacs.d/geiser-0.2.1/elisp/geiser.el")
 (load "quack.el")
 (require 'quack)
@@ -356,7 +359,7 @@
   (unless (eq system-type 'darwin)
     (set-face-attribute 'default nil :font "Monospace 16"))
   (when (eq system-type 'darwin)
-    (set-face-attribute 'default nil :font "Monospace 26" :height 250)))
+    (set-face-attribute 'default nil :font "Monospace 25" :height 240)))
 (load-file "~/.emacs.d/better-zoom.el")
 
 ;; Auctex
@@ -460,7 +463,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(quack-programs (quote ("mzscheme" "bigloo" "csi" "csi -hygienic" "gosh" "gracket" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "racket" "racket -il typed/racket" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi"))))
+ '(quack-programs (quote ("vicare" "bigloo" "csi" "csi -hygienic" "gosh" "gracket" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "mzscheme" "racket" "racket -il typed/racket" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -479,7 +482,7 @@
 (unless (eq system-type 'darwin)
   (set-default-font "Monospace 16"))
 (when (eq system-type 'dawrin)
-  (set-default-font "Monospace 26"))
+  (set-default-font "Monospace 25"))
 
 
 (when (eq system-type 'darwin)
@@ -496,4 +499,4 @@
   (unless (eq system-type 'darwin)
     (set-face-attribute 'default nil :font "Monospace 16"))
   (when (eq system-type 'darwin)
-    (set-face-attribute 'default nil :font "Monospace 26" :height 280)))
+    (set-face-attribute 'default nil :font "Monospace 25" :height 240)))
