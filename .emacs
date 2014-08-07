@@ -15,6 +15,7 @@
   (package-refresh-contents)
   (package-install 'exec-path-from-shell))
 
+(exec-path-from-shell-copy-env "PATH")
 (load-file "~/.emacs.d/include-viper.el")
 (global-linum-mode t)
 (setq c-default-style "linux"
@@ -44,7 +45,6 @@
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
-(exec-path-from-shell-copy-env "PATH")
 
 ; Up max space
 (setq max-lisp-eval-depth '40000)
@@ -173,6 +173,7 @@
 ;; Emacs Plugins
 (require 'generic-x)
 (load-file "~/.emacs.d/shill-mode.el")
+(load-file "~/.emacs.d/racodoc.el")
 (require 'shill-mode)
 (load-file "~/.emacs.d/geiser-0.2.1/elisp/geiser.el")
 (load "quack.el")
@@ -220,13 +221,13 @@
 (load-file "~/.emacs.d/paredit.el")
 (load-file "~/.emacs.d/paredit-viper-compat.el")
 (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
-(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
-(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
-(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
-(add-hook 'geiser-mode-hook           #'enable-paredit-mode)
+;(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+;(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+;(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+;(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+;(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+;(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+;(add-hook 'geiser-mode-hook           #'enable-paredit-mode)
 
 (eval-after-load 'paredit
   '(progn
