@@ -14,6 +14,12 @@
 (unless (package-installed-p 'exec-path-from-shell)
   (package-refresh-contents)
   (package-install 'exec-path-from-shell))
+(unless (package-installed-p 'jabber)
+  (package-refresh-contents)
+  (package-install 'jabber))
+(unless (package-installed-p 'rudel)
+  (package-refresh-contents)
+  (package-install 'rudel))
 
 (exec-path-from-shell-copy-env "PATH")
 (load-file "~/.emacs.d/include-viper.el")
@@ -420,6 +426,7 @@
                                         ;(add-hook 'org-mode-hook (lambda ()
                                         ;                           (org-indent-mode t))
                                         ;          t)
+;; Use toggle-truncate lines to turn on and off line wrapping.
 (setq org-startup-indented t)
 ;(require 'org-latex)
 (unless (boundp 'org-export-latex-classes)
@@ -513,3 +520,21 @@
     (set-face-attribute 'default nil :font "Monospace 16"))
   (when (eq system-type 'darwin)
     (set-face-attribute 'default nil :font "Monospace 25" :height 240)))
+
+(defun jabber ()
+  (interactive)
+  (jabber-connect)
+  (switch-to-buffer "*-jabber-*"))
+
+(setq jabber-account-list
+      '(("email@gmail.com"
+         (:network-server . "talk.google.com")
+         (:connection-type . ssl))))
+
+(defun call-drracket (text)
+  (shell-command (concat "drracket -- '" text "' &")))
+
+(defun drracket ()
+  "Open Drracket With current file"
+  (interactive)
+  (call-drracket (buffer-file-name)))
