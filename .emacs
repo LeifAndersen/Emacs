@@ -20,6 +20,9 @@
 (unless (package-installed-p 'rudel)
   (package-refresh-contents)
   (package-install 'rudel))
+(unless (package-installed-p 'writegood-mode)
+  (package-refresh-contents)
+  (package-install 'writegood-mode))
 
 (exec-path-from-shell-copy-env "PATH")
 (load-file "~/.emacs.d/include-viper.el")
@@ -106,9 +109,13 @@
 
 ;; Spell checking
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'writegood-mode)
 (add-hook 'bibtex-mode-hook 'flyspell-mode)
+(add-hook 'bibtex-mode-hook 'writegood-mode)
 (add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'text-mode-hook 'writegood-mode)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
+(add-hook 'markdwon-mode-hook 'writegood-mode)
 (add-hook 'c-mode-common-hook 'flyspell-prog-mode)
 (add-hook 'verilog-mode 'flyspell-prog-mode)
 (add-hook 'java-mode-hook 'flyspell-prog-mode)
@@ -117,6 +124,7 @@
 (add-hook 'scheme-mode-hook 'flyspell-mode)
 (add-hook 'python-mode-hook 'flyspell-prog-mod)
 (add-hook 'scribble-mode-hook 'flyspell-mode)
+(add-hook 'scribble-mode-hook 'writegood-mode)
 
 ;; Convenience Keybindings
 (global-set-key "\C-c\C-v\C-v" 'compile)
