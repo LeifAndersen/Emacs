@@ -10,12 +10,13 @@
     (package-install package)))
 
 (better-package-install 'scala-mode2)
-(better-package-isntall 'clojure-mode)
+(better-package-install 'clojure-mode)
 (better-package-install 'haskell-mode)
 (better-package-install 'exec-path-from-shell)
-(better-package-isntall 'jabber)
+(better-package-install 'jabber)
 (better-package-install 'rudel)
 (better-package-install 'writegood-mode)
+(better-package-install 'flycheck)
 
 (exec-path-from-shell-copy-env "PATH")
 (load-file "~/.emacs.d/include-viper.el")
