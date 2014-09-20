@@ -17,6 +17,7 @@
 (better-package-install 'rudel)
 (better-package-install 'writegood-mode)
 (better-package-install 'flycheck)
+(better-package-install 'racket-mode)
 
 (exec-path-from-shell-copy-env "PATH")
 (load-file "~/.emacs.d/include-viper.el")
@@ -116,6 +117,7 @@
 (add-hook 'processing-mode-hook 'flyspell-prog-mode)
 (add-hook 'scala-mode-hook 'flyspell-prog-mode)
 (add-hook 'scheme-mode-hook 'flyspell-mode)
+(add-hook 'racket-mode-hook 'flyspell-mode)
 (add-hook 'python-mode-hook 'flyspell-prog-mod)
 (add-hook 'scribble-mode-hook 'flyspell-mode)
 (add-hook 'scribble-mode-hook 'writegood-mode)
