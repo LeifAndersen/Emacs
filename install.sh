@@ -6,7 +6,6 @@ cp -r .emacs.d ~/.emacs.d
 cp -r .emacs.d/* ~/.emacs.d
 cp -r include-viper.el ~/.emacs.d
 tar xvf cedet-1.1.tar.gz -C ~/.emacs.d
-tar xvf emacs-jabber-0.8.91.tar.gz -C ~/.emacs.d
 unzip -o nxhtml-2.08-100425.zip -d ~/.emacs.d
 tar xvf ensime-master.tar.gz -C ~/.emacs.d
 #tar xvf emacs-w3m-1.4.4.tar.gz -C ~/.emacs.d
@@ -21,9 +20,6 @@ tar xvf Fill-Column-Indicator.tar.gz -C ~/.emacs.d
 cd ~/.emacs.d/cedet-1.1
 make
 cd ~/.emacs.d/scala-mode
-make
-cd ~/.emacs.d/emacs-jabber-0.8.91
-./configure
 make
 cd ~/.emacs.d/auctex-11.87
 ./configure
