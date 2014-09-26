@@ -41,7 +41,8 @@
    processing-mode
    yasnippet
    auctex
-   paredit))
+   paredit
+   w3m))
 
 ;; Other elisp packages
 (add-to-list 'load-path "~/.emacs.d/")
@@ -228,20 +229,7 @@
 (add-to-list 'ac-modes 'processing-mode)
 (add-hook 'processing-mode-hook 'processing-mode-init)
 
-; w3m
-(add-to-list 'load-path "~/.emacs.d/emacs-w3m")
-;(require 'w3m-load)
-;(require 'w3m)
-;(require 'mime-w3m)
-;(setq mm-text-html-renderer 'w3m)
-;(setq browse-url-browser-function 'w3m-browse-url)
-;(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
-;; optional keyboard short-cut
-;(global-set-key "\C-xm" 'browse-url-at-point)
-;(setq w3m-use-cookies t)
-
 (require 'newsticker)
-;(require 'w3m)
 ;(setq newsticker-html-renderer 'w3m-region)
 (setq newsticker-retrieval-interval 600)
 (setq newsticker-url-list-default nil)
