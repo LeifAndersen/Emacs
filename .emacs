@@ -1,3 +1,4 @@
+;; Packages
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
@@ -32,6 +33,11 @@
 (better-package-install 'processing-mode)
 (better-package-install 'yasnippet)
 
+;; Other elisp packages
+(load-file "~/.emacs.d/processing-init.el")
+(load-file "~/.emacs.d/shill-mode.el")
+
+;; Preferences
 (exec-path-from-shell-copy-env "PATH")
 (load-file "~/.emacs.d/include-viper.el")
 (global-linum-mode t)
@@ -179,9 +185,7 @@
 
 ;; Emacs Plugins
 (require 'generic-x)
-(load-file "~/.emacs.d/shill-mode.el")
 (load-file "~/.emacs.d/racodoc.el")
-(require 'shill-mode)
 (add-to-list 'load-path "~/.emacs.d/ensime-master/src/main/elisp/")
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
@@ -237,25 +241,6 @@
 ;(require 'yasnippet)
 ;(yas-global-mode 1)
 
-
-; Processing Support
-(add-to-list 'load-path "~/.emacs.d/processing2-emacs/")
-(autoload 'processing-mode "processing-mode" "Processing mode" t)
-(add-to-list 'auto-mode-alist '("\\.pde$" . processing-mode))
-(setq processing-location "~/bin/processing-2.0/processing-java")
-(setq processing-application-dir "~/bin/processing-2.0/")
-(setq processing-sketch-dir "~/sketchbook")
-
-(autoload 'processing-snippets-initialize "processing-mode" nil nil nil)
-(eval-after-load 'yasnippet '(processing-snippets-initialize))
-
-(defun processing-mode-init ()
-  (make-local-variable 'ac-sources)
-  (setq ac-sources '(ac-source-dictionary ac-source-yasnippet))
-  (make-local-variable 'ac-user-dictionary)
-  (setq ac-user-dictionary processing-functions)
-  (setq ac-user-dictionary (append ac-user-dictionary processing-builtins))
-  (setq ac-user-dictionary (append ac-user-dictionary processing-constants)))
 
 (add-to-list 'ac-modes 'processing-mode)
 (add-hook 'processing-mode-hook 'processing-mode-init)
