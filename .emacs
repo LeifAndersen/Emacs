@@ -42,7 +42,8 @@
    yasnippet
    auctex
    paredit
-   w3m))
+   w3m
+   ensime))
 
 ;; Other elisp packages
 (add-to-list 'load-path "~/.emacs.d/")
@@ -207,9 +208,6 @@
 ;; Emacs Plugins
 (require 'generic-x)
 (load-file "~/.emacs.d/racodoc.el")
-(add-to-list 'load-path "~/.emacs.d/ensime-master/src/main/elisp/")
-(require 'ensime)
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 ;;(add-to-list 'load-path "~/gnutls-3.1.3")
 ;;(load "~/nxhtml/autostart.el")
 
@@ -226,9 +224,6 @@
 (add-to-list 'load-path "~/.emacs.d/apel-10.8")
 (add-to-list 'load-path "~/.emacs.d/emi-1.14.6")
 (add-to-list 'load-path "~/.emacs.d/flim-1.14.9")
-
-(add-to-list 'ac-modes 'processing-mode)
-(add-hook 'processing-mode-hook 'processing-mode-init)
 
 (require 'newsticker)
 ;(setq newsticker-html-renderer 'w3m-region)
