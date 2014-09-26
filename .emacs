@@ -19,6 +19,7 @@
 (better-package-install 'flycheck)
 (better-package-install 'racket-mode)
 (better-package-install 'magit)
+(better-package-install 'quack)
 
 (exec-path-from-shell-copy-env "PATH")
 (load-file "~/.emacs.d/include-viper.el")
@@ -187,8 +188,6 @@
 (load-file "~/.emacs.d/racodoc.el")
 (require 'shill-mode)
 (load-file "~/.emacs.d/geiser-0.2.1/elisp/geiser.el")
-(load "quack.el")
-(require 'quack)
 ;(add-to-list 'load-path "~/.emacs.d/scala-mode/")
 (add-to-list 'load-path "~/.emacs.d/ensime-master/src/main/elisp/")
 ;(require 'scala-mode-auto)
@@ -478,23 +477,24 @@
 (add-to-list 'load-path "~/.emacs.d//")
 (load-file "~/.emacs.d/dash.el/dash.el")
 (load-file "~/.emacs.d/litable.el")
-(custom-set-variables
+;(custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(quack-programs (quote ("vicare" "bigloo" "csi" "csi -hygienic" "gosh" "gracket" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "mzscheme" "racket" "racket -il typed/racket" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi"))))
-(custom-set-faces
+; '(quack-programs (quote ("vicare" "bigloo" "csi" "csi -hygienic" "gosh" "gracket" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "mzscheme" "racket" "racket -il typed/racket" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi"))))
+;(custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+; )
 
 ;; Whiespace
 (load-file "~/.emacs.d/show-whitespace-mode.el")
 
 (require 'geiser-impl)
+(require 'quack)
 (quack-add-auto-mode-alist '(("\\.ms\\'"  . scheme-mode)))
 (geiser-impl--add-to-alist 'regexp "\\.ms$" 'racket t)
 (quack-add-auto-mode-alist '(("\\.plot\\'"  . scheme-mode)))
