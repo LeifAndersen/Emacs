@@ -40,13 +40,31 @@
    arduino-mode
    processing-mode
    yasnippet
-   auctex))
+   auctex
+   paredit))
 
 ;; Other elisp packages
-(load-file "~/.emacs.d/processing-init.el")
+(load-file "~/.emacs.d/show-whitespace-mode.el")
 (load-file "~/.emacs.d/shill-mode.el")
+(load-file "~/.emacs.d/scribble.el")
+
+; Custon package specific init/prefs
+(load-file "~/.emacs.d/processing-init.el")
 (load-file "~/.emacs.d/jabber-init.el")
 (load-file "~/.emacs.d/tex-init.el")
+(load-file "~/.emacs.d/paredit-prefs.el")
+
+
+;; Set auto-mode-alist
+(setq auto-mode-alist
+      (append
+       '(("\\.php\\'"   . html-mode)
+         ("\\.cu$"      . c-mode)
+         ("\\.inc$"     . c-mode)
+         ("\\.rss$"     . xml-mode)
+         ("\\.scrbl"    . scribble-mode)
+         ("\\.verilog$" . verilog-mode))
+       auto-mode-alist))
 
 ;; Preferences
 (exec-path-from-shell-copy-env "PATH")
@@ -66,12 +84,6 @@
       "~/.emacs.d/tetris-scores")
 (setq-default indent-tabs-mode nil)
 (setq-default show-trailing-whitespace t)
-(setq auto-mode-alist
-      (cons '("\\.cu$" . c-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("\\.inc$" . c-mode) auto-mode-alist))
-(setq auto-mode-alist
-      (cons '("\\.rss$" . xml-mode) auto-mode-alist))
 (column-number-mode)
 (setq inhibit-startup-screen t)
 (setq inhibit-splash-screen t)
@@ -112,10 +124,6 @@
 ;; A bit for CEDET.
 (load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
 
-; Scribble
-(load-file "~/.emacs.d/scribble.el")
-(add-to-list 'auto-mode-alist '("\\.scrbl" . scribble-mode))
-
 ;; Spell checking
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'writegood-mode)
@@ -144,8 +152,6 @@
 (global-set-key "\C-c\C-c\C-c" 'set-input-method)
 
 ;; Verilog Mode Stuff
-(setq auto-mode-alist
-      (cons '("\\.verilog$" . verilog-mode) auto-mode-alist))
 (setq verilog-indent-level             4
       verilog-indent-level-module      4
       verilog-indent-level-declaration 4
@@ -224,34 +230,9 @@
 (load-library "k3-mode")
 (add-to-list 'auto-mode-alist '("\\.k$" . k3-mode)) ;; to launch k3-mode for .k files
 
-; Paredit
-(load-file "~/.emacs.d/paredit.el")
-(load-file "~/.emacs.d/paredit-viper-compat.el")
-(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
-
-(eval-after-load 'paredit
-  '(progn
-     (require 'paredit-viper-compat)
-     (add-hook 'paredit-mode-hook #'paredit-viper-compat)))
-
-(load-file "~/.emacs.d/paredit-prefs.el")
-
-; PHP
-(setq auto-mode-alist
-      (append
-       '(("\\.php\\'" . html-mode))
-       auto-mode-alist))
-
 (add-to-list 'load-path "~/.emacs.d/apel-10.8")
 (add-to-list 'load-path "~/.emacs.d/emi-1.14.6")
 (add-to-list 'load-path "~/.emacs.d/flim-1.14.9")
-
-; Yasnippit
-;(add-to-list 'load-path
-;              "~/.emacs.d/yasnippet")
-;(require 'yasnippet)
-;(yas-global-mode 1)
-
 
 (add-to-list 'ac-modes 'processing-mode)
 (add-hook 'processing-mode-hook 'processing-mode-init)
@@ -401,9 +382,6 @@
 ;(add-hook 'c-mode-common-hook (lambda ()
 ;                                (local-set-key "." 'semantic-complete-self-insert)
 ;                                (local-set-key ">" 'semantic-complete-self-insert)))
-
-;; Whiespace
-(load-file "~/.emacs.d/show-whitespace-mode.el")
 
 (require 'geiser-impl)
 (require 'quack)
