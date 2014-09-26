@@ -19,10 +19,12 @@
 (better-package-install 'flycheck)
 (better-package-install 'racket-mode)
 (better-package-install 'magit)
+(better-package-install 'markdown-mode)
 (better-package-install 'quack)
 (better-package-install 'geiser)
 (better-package-install 'dash)
 (better-package-install 'litable)
+(better-package-install 'cmake-mode)
 
 (exec-path-from-shell-copy-env "PATH")
 (load-file "~/.emacs.d/include-viper.el")
@@ -45,8 +47,6 @@
       (cons '("\\.cu$" . c-mode) auto-mode-alist))
 (setq auto-mode-alist
       (cons '("\\.inc$" . c-mode) auto-mode-alist))
-;(setq auto-mode-alist
-;      (cons '("\\.rkt$" . scheme-mode) auto-mode-alist))
 (setq auto-mode-alist
       (cons '("\\.rss$" . xml-mode) auto-mode-alist))
 (column-number-mode)
@@ -88,20 +88,6 @@
 
 ;; A bit for CEDET.
 (load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
-
-; Markdown Support
-(autoload 'markdown-mode "markdown-mode"
-  "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(add-hook 'markdown-mode-hook
-          (lambda ()
-            (when buffer-file-name
-              (add-hook 'after-save-hook
-                        'check-parens
-                        nil t))))
-
 
 ; Scribble
 (load-file "~/.emacs.d/scribble.el")
@@ -238,14 +224,6 @@
        '(("\\.php\\'" . html-mode))
        auto-mode-alist))
 
-; Add cmake listfile names to the mode list.
-(setq auto-mode-alist
-      (append
-       '(("CMakeLists\\.txt\\'" . cmake-mode))
-       '(("\\.cmake\\'" . cmake-mode))
-       auto-mode-alist))
-
-(autoload 'cmake-mode "cmake-mode.el" t)
 (autoload 'csharp-mode "csharp-mode.el" t)
 (setq auto-mode-alist
       (append
