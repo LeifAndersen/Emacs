@@ -21,6 +21,8 @@
 (better-package-install 'magit)
 (better-package-install 'quack)
 (better-package-install 'geiser)
+(better-package-install 'dash)
+(better-package-install 'litable)
 
 (exec-path-from-shell-copy-env "PATH")
 (load-file "~/.emacs.d/include-viper.el")
@@ -468,23 +470,6 @@
 ;(add-hook 'c-mode-common-hook (lambda ()
 ;                                (local-set-key "." 'semantic-complete-self-insert)
 ;                                (local-set-key ">" 'semantic-complete-self-insert)))
-
-; Lightable (beta)
-(add-to-list 'load-path "~/.emacs.d//")
-(load-file "~/.emacs.d/dash.el/dash.el")
-(load-file "~/.emacs.d/litable.el")
-;(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-; '(quack-programs (quote ("vicare" "bigloo" "csi" "csi -hygienic" "gosh" "gracket" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "mzscheme" "racket" "racket -il typed/racket" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi"))))
-;(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-; )
 
 ;; Whiespace
 (load-file "~/.emacs.d/show-whitespace-mode.el")
