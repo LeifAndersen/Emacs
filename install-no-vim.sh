@@ -12,8 +12,6 @@ tar xvf ensime-master.tar.gz -C ~/.emacs.d
 tar xvf semi-1.14.6.tar.gz -C ~/.emacs.d
 tar xvf apel-10.8.tar.gz -C ~/.emacs.d
 tar xvf flim-1.14.9.tar.gz -C ~/.emacs.d
-tar xvf yasnippet.tar.gz -C ~/.emacs.d
-tar xvf processing2-emacs.tar.gz -C ~/.emacs.d
 tar xvf auctex-11.87.tar.gz -C ~/.emacs.d
 tar xvf Fill-Column-Indicator.tar.gz -C ~/.emacs.d
 cd ~/.emacs.d/cedet-1.1

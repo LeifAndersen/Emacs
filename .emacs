@@ -26,6 +26,11 @@
 (better-package-install 'litable)
 (better-package-install 'cmake-mode)
 (better-package-install 'csharp-mode)
+(better-package-install 'ssh-config-mode)
+(better-package-install 'glsl-mode)
+(better-package-install 'arduino-mode)
+(better-package-install 'processing-mode)
+(better-package-install 'yasnippet)
 
 (exec-path-from-shell-copy-env "PATH")
 (load-file "~/.emacs.d/include-viper.el")
@@ -180,11 +185,8 @@
 (add-to-list 'load-path "~/.emacs.d/ensime-master/src/main/elisp/")
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-(autoload 'glsl-mode "glsl-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.vert\\'" . glsl-mode))
-(add-to-list 'auto-mode-alist '("\\.frag\\'" . glsl-mode))
-                                        ;(add-to-list 'load-path "~/gnutls-3.1.3")
-                                        ;(load "~/nxhtml/autostart.el")
+;;(add-to-list 'load-path "~/gnutls-3.1.3")
+;;(load "~/nxhtml/autostart.el")
 
 ; Fill Column Indicators
 ; (add-to-list 'load-path "~/.emacs.d/Fill-Column-Indicator")
@@ -235,13 +237,6 @@
 ;(require 'yasnippet)
 ;(yas-global-mode 1)
 
-
-; Arduino Support
-(load-file "~/.emacs.d/arduino-mode.el")
-(setq auto-mode-alist (cons '("\\.pde$" . arduino-mode) auto-mode-alist))
-;(setq auto-mode-alist (cons '("\\.\\(pde\\|ino\\)$" . arduino-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\\.ino$" . auto-mode-alist) auto-mode-alist))
-(autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t)
 
 ; Processing Support
 (add-to-list 'load-path "~/.emacs.d/processing2-emacs/")
@@ -336,12 +331,6 @@
 ;(global-set-key [C-+] 'text-scale-increase)
 ;(global-set-key [C--] 'text-scale-decrease)
 ;(global-set-key [C-_] 'text-scale-decrease)
-
-; SSH config fiels
-(autoload 'ssh-config-mode "ssh-config-mode" t)
-(add-to-list 'auto-mode-alist '(".ssh/config\\'"  . ssh-config-mode))
-(add-to-list 'auto-mode-alist '("sshd?_config\\'" . ssh-config-mode))
-(add-hook 'ssh-config-mode-hook 'turn-on-font-lock)
 
 ; Better font and zooming
 (when window-system
