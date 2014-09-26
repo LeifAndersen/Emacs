@@ -10,28 +10,36 @@
     (package-refresh-contents)
     (package-install package)))
 
-(better-package-install 'scala-mode2)
-(better-package-install 'clojure-mode)
-(better-package-install 'haskell-mode)
-(better-package-install 'exec-path-from-shell)
-(better-package-install 'jabber)
-(better-package-install 'rudel)
-(better-package-install 'writegood-mode)
-(better-package-install 'flycheck)
-(better-package-install 'racket-mode)
-(better-package-install 'magit)
-(better-package-install 'markdown-mode)
-(better-package-install 'quack)
-(better-package-install 'geiser)
-(better-package-install 'dash)
-(better-package-install 'litable)
-(better-package-install 'cmake-mode)
-(better-package-install 'csharp-mode)
-(better-package-install 'ssh-config-mode)
-(better-package-install 'glsl-mode)
-(better-package-install 'arduino-mode)
-(better-package-install 'processing-mode)
-(better-package-install 'yasnippet)
+(defun better-package-install-list (packages)
+  (if packages
+      (progn
+	(better-package-install      (car packages))
+	(better-package-install-list (cdr packages)))
+    nil))
+
+(better-package-install-list
+ '(scala-mode2
+   clojure-mode
+   haskell-mode
+   exec-path-from-shell
+   jabber
+   rudel
+   writegood-mode
+   flycheck
+   racket-mode
+   magit
+   markdown-mode
+   quack
+   geiser
+   dash
+   litable
+   cmake-mode
+   csharp-mode
+   ssh-config-mode
+   glsl-mode
+   arduino-mode
+   processing-mode
+   yasnippet))
 
 ;; Other elisp packages
 (load-file "~/.emacs.d/processing-init.el")
