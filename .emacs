@@ -39,11 +39,14 @@
    glsl-mode
    arduino-mode
    processing-mode
-   yasnippet))
+   yasnippet
+   auctex))
 
 ;; Other elisp packages
 (load-file "~/.emacs.d/processing-init.el")
 (load-file "~/.emacs.d/shill-mode.el")
+(load-file "~/.emacs.d/jabber-init.el")
+(load-file "~/.emacs.d/tex-init.el")
 
 ;; Preferences
 (exec-path-from-shell-copy-env "PATH")
@@ -333,33 +336,6 @@
     (set-face-attribute 'default nil :font "Monospace 25" :height 240)))
 (load-file "~/.emacs.d/better-zoom.el")
 
-;; Auctex
-(when (file-exists-p "~/.emacs.d/auctex-11.87/preview/preview-latex.el")
-  (add-to-list 'load-path "~/.emacs.d/auctex-11.87")
-  (add-to-list 'load-path "~/.emacs.d/auctex-11.87/preview")
-  (add-to-list 'load-path "~/.emacs.d/auctex-11.87/style")
-  (add-to-list 'load-path "~/.emacs.d/auctex-11.87/images")
-  (add-to-list 'load-path "~/.emacs.d/auctex-11.87/doc")
-  (load "auctex.el" nil t t)
-  (load "preview-latex.el" nil t t)
-
-  (setq TeX-auto-save t)
-  (setq TeX-parse-self t)
-  ;(setq-default TeX-master nil)
-  (setq TeX-PDF-mode t)
-  ;(setq TeX-engine 'xetex)
-  )
-
-(defun tex-engine-xetex ()
-  "Set the latex rendering engine to xetex"
-  (interactive)
-  (setq TeX-engine 'xetex))
-
-;(defun tex-engine (mode)
-;  "Set the latex rendering engine"
-;  (interactive "sRendering Engine: \n")
-;  (setq TeX-engine mode))
-
 (defun tex-input ()
   "Set the input mode to TeX style input."
   (interactive)
@@ -456,16 +432,6 @@
     (set-face-attribute 'default nil :font "Monospace 16"))
   (when (eq system-type 'darwin)
     (set-face-attribute 'default nil :font "Monospace 25" :height 240)))
-
-(defun jabber ()
-  (interactive)
-  (jabber-connect)
-  (switch-to-buffer "*-jabber-*"))
-
-(setq jabber-account-list
-      '(("email@gmail.com"
-         (:network-server . "talk.google.com")
-         (:connection-type . ssl))))
 
 (defun call-drracket (text)
   (shell-command (concat "drracket -- '" text "' &")))
