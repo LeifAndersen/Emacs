@@ -44,16 +44,20 @@
    paredit))
 
 ;; Other elisp packages
+(add-to-list 'load-path "~/.emacs.d/")
+(load-library "k-mode")
+(load-library "k3-mode")
 (load-file "~/.emacs.d/show-whitespace-mode.el")
 (load-file "~/.emacs.d/shill-mode.el")
 (load-file "~/.emacs.d/scribble.el")
 
 ; Custon package specific init/prefs
+(load-file "~/.emacs.d/include-viper.el")
 (load-file "~/.emacs.d/processing-init.el")
 (load-file "~/.emacs.d/jabber-init.el")
 (load-file "~/.emacs.d/tex-init.el")
 (load-file "~/.emacs.d/paredit-prefs.el")
-
+(load-file "~/.emacs.d/k-init.el")
 
 ;; Set auto-mode-alist
 (setq auto-mode-alist
@@ -63,12 +67,32 @@
          ("\\.inc$"     . c-mode)
          ("\\.rss$"     . xml-mode)
          ("\\.scrbl"    . scribble-mode)
-         ("\\.verilog$" . verilog-mode))
+         ("\\.verilog$" . verilog-mode)
+         ("\\.k$"       . k3-mode))
        auto-mode-alist))
+
+;; Spell checking
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'writegood-mode)
+(add-hook 'bibtex-mode-hook 'flyspell-mode)
+(add-hook 'bibtex-mode-hook 'writegood-mode)
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'text-mode-hook 'writegood-mode)
+(add-hook 'markdown-mode-hook 'flyspell-mode)
+(add-hook 'markdwon-mode-hook 'writegood-mode)
+(add-hook 'c-mode-common-hook 'flyspell-prog-mode)
+(add-hook 'verilog-mode 'flyspell-prog-mode)
+(add-hook 'java-mode-hook 'flyspell-prog-mode)
+(add-hook 'processing-mode-hook 'flyspell-prog-mode)
+(add-hook 'scala-mode-hook 'flyspell-prog-mode)
+(add-hook 'scheme-mode-hook 'flyspell-mode)
+(add-hook 'racket-mode-hook 'flyspell-mode)
+(add-hook 'python-mode-hook 'flyspell-prog-mod)
+(add-hook 'scribble-mode-hook 'flyspell-mode)
+(add-hook 'scribble-mode-hook 'writegood-mode)
 
 ;; Preferences
 (exec-path-from-shell-copy-env "PATH")
-(load-file "~/.emacs.d/include-viper.el")
 (global-linum-mode t)
 (setq c-default-style "linux"
       c-basic-offset 2)
@@ -93,8 +117,6 @@
 ; Up max space
 (setq max-lisp-eval-depth '40000)
 (setq max-specpdl-size '100000)
-
-(add-to-list 'load-path "~/.emacs.d/")
 
 (defun tab-width-2 ()
   "Set tab width to 2"
@@ -123,26 +145,6 @@
 
 ;; A bit for CEDET.
 (load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
-
-;; Spell checking
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
-(add-hook 'LaTeX-mode-hook 'writegood-mode)
-(add-hook 'bibtex-mode-hook 'flyspell-mode)
-(add-hook 'bibtex-mode-hook 'writegood-mode)
-(add-hook 'text-mode-hook 'flyspell-mode)
-(add-hook 'text-mode-hook 'writegood-mode)
-(add-hook 'markdown-mode-hook 'flyspell-mode)
-(add-hook 'markdwon-mode-hook 'writegood-mode)
-(add-hook 'c-mode-common-hook 'flyspell-prog-mode)
-(add-hook 'verilog-mode 'flyspell-prog-mode)
-(add-hook 'java-mode-hook 'flyspell-prog-mode)
-(add-hook 'processing-mode-hook 'flyspell-prog-mode)
-(add-hook 'scala-mode-hook 'flyspell-prog-mode)
-(add-hook 'scheme-mode-hook 'flyspell-mode)
-(add-hook 'racket-mode-hook 'flyspell-mode)
-(add-hook 'python-mode-hook 'flyspell-prog-mod)
-(add-hook 'scribble-mode-hook 'flyspell-mode)
-(add-hook 'scribble-mode-hook 'writegood-mode)
 
 ;; Convenience Keybindings
 (global-set-key "\C-c\C-v\C-v" 'compile)
@@ -218,17 +220,6 @@
 ;   (lambda () (fci-mode 1)))
 ; (global-fci-mode 1)
 ; (setq fci-rule-column 80)
-
-; k-mode
-;(setq load-path (cons "path/to/this/file" load-path))
-(load-library "k-mode")
-;(add-to-list 'auto-mode-alist '("\\.k$" . k-mode)) ;; to launch k-mode for .k files
-(setq k-path "~/bin/k-framework") ;; defaults to ~/k-framework
-
-; k3-mode
-;(setq load-path (cons "path/to/this/file" load-path))
-(load-library "k3-mode")
-(add-to-list 'auto-mode-alist '("\\.k$" . k3-mode)) ;; to launch k3-mode for .k files
 
 (add-to-list 'load-path "~/.emacs.d/apel-10.8")
 (add-to-list 'load-path "~/.emacs.d/emi-1.14.6")
