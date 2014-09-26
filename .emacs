@@ -25,6 +25,7 @@
 (better-package-install 'dash)
 (better-package-install 'litable)
 (better-package-install 'cmake-mode)
+(better-package-install 'csharp-mode)
 
 (exec-path-from-shell-copy-env "PATH")
 (load-file "~/.emacs.d/include-viper.el")
@@ -222,12 +223,6 @@
 (setq auto-mode-alist
       (append
        '(("\\.php\\'" . html-mode))
-       auto-mode-alist))
-
-(autoload 'csharp-mode "csharp-mode.el" t)
-(setq auto-mode-alist
-      (append
-       '(("\\.cs\\'" . csharp-mode))
        auto-mode-alist))
 
 (add-to-list 'load-path "~/.emacs.d/apel-10.8")
