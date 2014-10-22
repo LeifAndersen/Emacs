@@ -52,6 +52,7 @@
 (load-file "~/.emacs.d/show-whitespace-mode.el")
 (load-file "~/.emacs.d/shill-mode.el")
 (load-file "~/.emacs.d/scribble.el")
+(load-file "~/.emacs.d/yaml-mode.el")
 
 ; Custon package specific init/prefs
 (load-file "~/.emacs.d/include-viper.el")
@@ -226,7 +227,7 @@
 (add-to-list 'load-path "~/.emacs.d/flim-1.14.9")
 
 (require 'newsticker)
-;(setq newsticker-html-renderer 'w3m-region)
+(setq newsticker-html-renderer 'w3m-region)
 (setq newsticker-retrieval-interval 600)
 (setq newsticker-url-list-default nil)
 (load-file "~/.emacs.d/opmlimport.el")
@@ -387,3 +388,15 @@
   "Open Drracket With current file"
   (interactive)
   (call-drracket (buffer-file-name)))
+
+(setq auto-mode-alist
+      (append
+       '(("\\.rkt$"     . racket-mode)
+         ("\\.php\\'"   . html-mode)
+         ("\\.cu$"      . c-mode)
+         ("\\.inc$"     . c-mode)
+         ("\\.rss$"     . xml-mode)
+         ("\\.scrbl"    . scribble-mode)
+         ("\\.verilog$" . verilog-mode)
+         ("\\.k$"       . k3-mode))
+       auto-mode-alist))
