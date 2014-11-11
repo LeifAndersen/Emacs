@@ -62,6 +62,10 @@
 (unless (file-directory-p el-get-recipe-path-elpa)
   (el-get-elpa-build-local-recipes))
 
+(el-get 'sync
+        '(ess
+          sml-mode))
+
 ;; Other elisp packages
 (add-to-list 'load-path "~/.emacs.d/")
 (load-library "k-mode")
