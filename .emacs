@@ -45,6 +45,23 @@
    w3m
    ensime))
 
+;; El-get
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(setq el-get-notify-type 'message)
+(unless (require 'el-get nil 'noerror)
+ (with-current-buffer
+  (url-retrieve-synchronously
+   "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+  (let (el-get-master-branch)
+   (goto-char (point-max))
+   (eval-print-last-sexp))))
+
+(require 'el-get-elpa)
+;; Build the El-Get copy of the package.el packages if we have not
+;; built it before.  Will have to look into updating later ...
+(unless (file-directory-p el-get-recipe-path-elpa)
+  (el-get-elpa-build-local-recipes))
+
 ;; Other elisp packages
 (add-to-list 'load-path "~/.emacs.d/")
 (load-library "k-mode")
@@ -388,6 +405,8 @@
   "Open Drracket With current file"
   (interactive)
   (call-drracket (buffer-file-name)))
+
+(setq racket-mode-pretty-lambda nil)
 
 (setq auto-mode-alist
       (append
