@@ -64,7 +64,11 @@
 
 (el-get 'sync
         '(ess
-          sml-mode))
+          sml-mode
+          apel
+          semi
+          flim
+          nxhtml))
 
 ;; Other elisp packages
 (add-to-list 'load-path "~/.emacs.d/")
@@ -243,9 +247,7 @@
 ; (global-fci-mode 1)
 ; (setq fci-rule-column 80)
 
-(add-to-list 'load-path "~/.emacs.d/apel-10.8")
 (add-to-list 'load-path "~/.emacs.d/emi-1.14.6")
-(add-to-list 'load-path "~/.emacs.d/flim-1.14.9")
 
 (require 'newsticker)
 (setq newsticker-html-renderer 'w3m-region)
