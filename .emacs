@@ -64,11 +64,11 @@
 
 (el-get 'sync
         '(ess
+          ;; nxhtml
           sml-mode
           apel
           semi
-          flim
-          nxhtml))
+          flim))
 
 ;; Other elisp packages
 (add-to-list 'load-path "~/.emacs.d/")
@@ -86,19 +86,10 @@
 (load-file "~/.emacs.d/tex-init.el")
 (load-file "~/.emacs.d/paredit-prefs.el")
 (load-file "~/.emacs.d/k-init.el")
+(load-file "~/.emacs.d/verilog-init.el")
+(load-file "~/.emacs.d/racket-init.el")
 
-;; Set auto-mode-alist
-(setq auto-mode-alist
-      (append
-       '(("\\.rkt$"     . racket-mode)
-         ("\\.php\\'"   . html-mode)
-         ("\\.cu$"      . c-mode)
-         ("\\.inc$"     . c-mode)
-         ("\\.rss$"     . xml-mode)
-         ("\\.scrbl"    . scribble-mode)
-         ("\\.verilog$" . verilog-mode)
-         ("\\.k$"       . k3-mode))
-       auto-mode-alist))
+(load-file "~/.emacs.d/text-tools.el")
 
 ;; Spell checking
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
@@ -147,31 +138,6 @@
 (setq max-lisp-eval-depth '40000)
 (setq max-specpdl-size '100000)
 
-(defun tab-width-2 ()
-  "Set tab width to 2"
-  (interactive)
-  (setq-default tab-width 2))
-
-(defun tab-width-4 ()
-  "Set tab width to 4"
-  (interactive)
-  (setq-default tab-width 4))
-
-(defun tab-width-8 ()
-  "Set tab width to 8"
-  (interactive)
-  (setq-default tab-width 8))
-
-(defun c-offset-2 ()
-  "Set the c-basic-offset to 2"
-  (interactive)
-  (setq c-basic-offset 2))
-
-(defun c-offset-4 ()
-  "Set the c-basic-offset to 4"
-  (interactive)
-  (setq c-basic-offset 4))
-
 ;; A bit for CEDET.
 (load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
 
@@ -181,34 +147,6 @@
 (global-set-key "\C-c\C-v\C-z" 'shell)
 (global-set-key "\M-u" 'ucs-insert)
 (global-set-key "\C-c\C-c\C-c" 'set-input-method)
-
-;; Verilog Mode Stuff
-(setq verilog-indent-level             4
-      verilog-indent-level-module      4
-      verilog-indent-level-declaration 4
-      verilog-indent-level-behavioral  4
-      verilog-indent-level-directive   4
-      verilog-case-indent              4
-      verilog-auto-newline             nil
-      verilog-auto-indent-on-newline   nil
-      verilog-tab-always-indent        t
-      verilog-auto-endcomments         t
-      verilog-minimum-comment-distance 40
-      verilog-indent-begin-after-if    t
-      verilog-auto-lineup              '(all))
-;(setq verilog-indent-level             4
-;      verilog-indent-level-module      4
-;      verilog-indent-level-declaration 4
-;      verilog-indent-level-behavioral  4
-;      verilog-indent-level-directive   4
-;      verilog-case-indent              4
-;      verilog-auto-newline             nil
-;      verilog-auto-indent-on-newline   nil
-;      verilog-tab-always-indent        t
-;      verilog-auto-endcomments         t
-;      verilog-minimum-comment-distance 40
-;      verilog-indent-begin-after-if    t
-;      verilog-auto-lineup              '(all))
 
 ;; Greek Keybindings
 (global-set-key (kbd "<f9>") "λ")
@@ -404,16 +342,7 @@
   (when (eq system-type 'darwin)
     (set-face-attribute 'default nil :font "Monospace 25" :height 240)))
 
-(defun call-drracket (text)
-  (shell-command (concat "drracket -- '" text "' &")))
-
-(defun drracket ()
-  "Open Drracket With current file"
-  (interactive)
-  (call-drracket (buffer-file-name)))
-
-(setq racket-mode-pretty-lambda nil)
-
+;; Set auto-mode-alist
 (setq auto-mode-alist
       (append
        '(("\\.rkt$"     . racket-mode)
