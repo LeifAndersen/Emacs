@@ -342,6 +342,14 @@
   (when (eq system-type 'darwin)
     (set-face-attribute 'default nil :font "Monospace 25" :height 240)))
 
+(defun fix-font-big ()
+  "Temporary function to fix small font when opening a new window"
+  (interactive)
+  (unless (eq system-type 'darwin)
+    (set-face-attribute 'default nil :font "Monospace 16"))
+  (when (eq system-type 'darwin)
+    (set-face-attribute 'default nil :font "Monospace 35" :height 300)))
+
 ;; Set auto-mode-alist
 (setq auto-mode-alist
       (append
