@@ -43,7 +43,8 @@
    auctex
    paredit
    w3m
-   ensime))
+   ensime
+   ess))
 
 ;; El-get
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
