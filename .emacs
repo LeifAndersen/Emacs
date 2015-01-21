@@ -44,7 +44,8 @@
    paredit
    w3m
    ensime
-   ess))
+   ess
+   evil))
 
 ;; El-get
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
@@ -54,8 +55,8 @@
   (url-retrieve-synchronously
    "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
   (let (el-get-master-branch)
-   (goto-char (point-max))
-   (eval-print-last-sexp))))
+    (goto-char (point-max))
+    (eval-print-last-sexp))))
 
 (require 'el-get-elpa)
 ;; Build the El-Get copy of the package.el packages if we have not
@@ -361,5 +362,6 @@
          ("\\.rss$"     . xml-mode)
          ("\\.scrbl"    . scribble-mode)
          ("\\.verilog$" . verilog-mode)
-         ("\\.k$"       . k3-mode))
+         ("\\.k$"       . k3-mode)
+         ("\\.R$"       . R-mode))
        auto-mode-alist))
