@@ -23,3 +23,7 @@
   (interactive)
   (setq c-basic-offset 4))
 
+(defun c-offset-8 ()
+  "Set the c-basic-offset to 8"
+  (interactive)
+  (setq c-basic-offset 8))
