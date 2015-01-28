@@ -1,51 +1,12 @@
+;; Preferences
+(load-file "~/.emacs.d/preferences.el")
+
 ;; Packages
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
-
-(defun better-package-install (package)
-  (unless (package-installed-p package)
-    (package-refresh-contents)
-    (package-install package)))
-
-(defun better-package-install-list (packages)
-  (if packages
-      (progn
-	(better-package-install      (car packages))
-	(better-package-install-list (cdr packages)))
-    nil))
-
-(better-package-install-list
- '(scala-mode2
-   clojure-mode
-   haskell-mode
-   exec-path-from-shell
-   jabber
-   rudel
-   writegood-mode
-   flycheck
-   racket-mode
-   magit
-   markdown-mode
-   quack
-   geiser
-   dash
-   litable
-   cmake-mode
-   csharp-mode
-   ssh-config-mode
-   glsl-mode
-   arduino-mode
-   processing-mode
-   yasnippet
-   auctex
-   paredit
-   w3m
-   ensime
-   ess
-   evil))
 
 ;; El-get
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
@@ -67,10 +28,37 @@
 (el-get 'sync
         '(ess
           ;; nxhtml
+          ;; rudy
           sml-mode
           apel
           semi
-          flim))
+          flim
+          scala-mode2
+          clojure-mode
+          haskell-mode
+          exec-path-from-shell
+          jabber
+          writegood-mode
+          flycheck
+          racket-mode
+          magit
+          markdown-mode
+          quack
+          geiser
+          dash
+          litable
+          cmake-mode
+          csharp-mode
+          ssh-config-mode
+          glsl-mode
+          arduino-mode
+          ;; processing-mode
+          yasnippet
+          auctex
+          paredit
+          w3m
+          ensime
+          evil))
 
 ;; Other elisp packages
 (add-to-list 'load-path "~/.emacs.d/")
@@ -113,34 +101,11 @@
 (add-hook 'scribble-mode-hook 'flyspell-mode)
 (add-hook 'scribble-mode-hook 'writegood-mode)
 
-;; Preferences
-(exec-path-from-shell-copy-env "PATH")
-(global-linum-mode t)
-(setq c-default-style "linux"
-      c-basic-offset 2)
-(setq-default tab-width 4)
-(unless (eq system-type 'darwin)
-  (set-default-font "Monospace 16"))
-(when (eq system-type 'darwin)
-  (set-default-font "Monospace 25"))
-(show-paren-mode t)
-(setq snake-score-file
-      "~/.emacs.d/snake-scores")
-(setq tetris-score-file
-      "~/.emacs.d/tetris-scores")
-(setq-default indent-tabs-mode nil)
-(setq-default show-trailing-whitespace t)
-(column-number-mode)
-(setq inhibit-startup-screen t)
-(setq inhibit-splash-screen t)
-(setq inhibit-startup-message t)
-(setq initial-scratch-message "")
-(tool-bar-mode -1)
-;;(menu-bar-mode -99)
-
 ; Up max space
 (setq max-lisp-eval-depth '40000)
 (setq max-specpdl-size '100000)
+
+(exec-path-from-shell-copy-env "PATH")
 
 ;; A bit for CEDET.
 (load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
