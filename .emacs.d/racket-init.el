@@ -8,3 +8,5 @@
 
 (setq racket-mode-pretty-lambda nil)
 
+(put 'test-case 'racket-indent-function 1)
+(put 'test-suite 'racket-indent-function 1)
