@@ -70,6 +70,7 @@
 (load-file "~/.emacs.d/yaml-mode.el")
 
 ; Custon package specific init/prefs
+;;(evil-mode 1)
 (load-file "~/.emacs.d/include-viper.el")
 (load-file "~/.emacs.d/processing-init.el")
 (load-file "~/.emacs.d/jabber-init.el")
@@ -96,10 +97,13 @@
 (add-hook 'processing-mode-hook 'flyspell-prog-mode)
 (add-hook 'scala-mode-hook 'flyspell-prog-mode)
 (add-hook 'scheme-mode-hook 'flyspell-mode)
-(add-hook 'racket-mode-hook 'flyspell-mode)
+(add-hook 'racket-mode-hook 'flyspell-prog-mode)
 (add-hook 'python-mode-hook 'flyspell-prog-mod)
 (add-hook 'scribble-mode-hook 'flyspell-mode)
 (add-hook 'scribble-mode-hook 'writegood-mode)
+
+;; Error Checking
+(add-hook 'racket-mode-hook 'flycheck-mode)
 
 ; Up max space
 (setq max-lisp-eval-depth '40000)
