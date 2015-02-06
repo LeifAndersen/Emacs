@@ -2,7 +2,7 @@
 (global-linum-mode t)
 (setq c-default-style "linux"
       c-basic-offset 2)
-(setq-default tab-width 4)
+(setq-default tab-width 8)
 (unless (eq system-type 'darwin)
   (set-default-font "Monospace 16"))
 (when (eq system-type 'darwin)
