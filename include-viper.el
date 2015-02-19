@@ -1,9 +1,10 @@
-(setq viper-mode t)
-(require 'viper)
+(evil-mode 1)
+;;(setq viper-mode t)
+;;(require 'viper)
 
-(load-file "~/.emacs.d/paredit-viper-compat.el")
+;;(load-file "~/.emacs.d/paredit-viper-compat.el")
 
-(eval-after-load 'paredit
-  '(progn
-     (require 'paredit-viper-compat)
-     (add-hook 'paredit-mode-hook #'paredit-viper-compat)))
+;;(eval-after-load 'paredit
+;;  '(progn
+;;     (require 'paredit-viper-compat)
+;;     (add-hook 'paredit-mode-hook #'paredit-viper-compat)))
