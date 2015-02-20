@@ -58,7 +58,8 @@
           paredit
           w3m
           ensime
-          evil))
+          evil
+          cedet))
 
 ;; Other elisp packages
 (add-to-list 'load-path "~/.emacs.d/")
@@ -109,9 +110,6 @@
 (setq max-specpdl-size '100000)
 
 (exec-path-from-shell-copy-env "PATH")
-
-;; A bit for CEDET.
-(load-file "~/.emacs.d/cedet-1.1/common/cedet.el")
 
 ;; Convenience Keybindings
 (global-set-key "\C-c\C-v\C-v" 'compile)
@@ -267,8 +265,8 @@
 (setq graphviz-dot-auto-indent-on-semi nil)
 
 ;; For CEDET
-(require 'semantic-ia)
-(require 'semantic-gcc)
+(require 'semantic/ia)
+;;(require 'semantic-gcc)
 (global-ede-mode 1)
                                         ;(semantic-load-enable-gaudy-code-helpers)
 (semantic-load-enable-excessive-code-helpers)
