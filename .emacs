@@ -60,7 +60,12 @@
           w3m
           ensime
           evil
-          cedet))
+          cedet
+          yaml-mode
+          flex-mode
+          dot-mode
+          graphviz-dot-mode
+          bison-mode))
 
 ;; Other elisp packages
 (add-to-list 'load-path "~/.emacs.d/")
