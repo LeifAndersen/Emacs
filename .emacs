@@ -33,6 +33,7 @@
           apel
           semi
           flim
+          scala-mode
           scala-mode2
           clojure-mode
           haskell-mode
