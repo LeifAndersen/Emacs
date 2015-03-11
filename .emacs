@@ -74,7 +74,6 @@
 (load-file "~/.emacs.d/show-whitespace-mode.el")
 (load-file "~/.emacs.d/shill-mode.el")
 (load-file "~/.emacs.d/scribble.el")
-(load-file "~/.emacs.d/yaml-mode.el")
 
 ; Custon package specific init/prefs
 (load-file "~/.emacs.d/include-viper.el")
