@@ -90,10 +90,12 @@
 ;; Spell checking
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'writegood-mode)
+(add-hook 'LaTeX-mode-hook 'auto-fill-mode)
 (add-hook 'bibtex-mode-hook 'flyspell-mode)
 (add-hook 'bibtex-mode-hook 'writegood-mode)
 (add-hook 'text-mode-hook 'flyspell-mode)
 (add-hook 'text-mode-hook 'writegood-mode)
+(add-hook 'text-mode-hook 'auto-fill-mode)
 (add-hook 'markdown-mode-hook 'flyspell-mode)
 (add-hook 'markdwon-mode-hook 'writegood-mode)
 (add-hook 'c-mode-common-hook 'flyspell-prog-mode)
@@ -106,6 +108,7 @@
 (add-hook 'python-mode-hook 'flyspell-prog-mod)
 (add-hook 'scribble-mode-hook 'flyspell-mode)
 (add-hook 'scribble-mode-hook 'writegood-mode)
+(add-hook 'scribble-mode-hook 'auto-fill-mode)
 
 ;; Error Checking
 (add-hook 'racket-mode-hook 'flycheck-mode)
