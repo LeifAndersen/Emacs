@@ -11,3 +11,5 @@
 (put 'test-case 'racket-indent-function 1)
 (put 'test-suite 'racket-indent-function 1)
 (put 'compiler-test 'racket-indent-function 1)
+(put 'splicing-let-syntax 'racket-indent-function 1)
+(put 'splicing-let 'racket-indent-function 1)
