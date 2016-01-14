@@ -71,6 +71,7 @@
 (add-to-list 'load-path "~/.emacs.d/")
 (load-library "k-mode")
 (load-library "k3-mode")
+(load-library "smv-mode")
 (load-file "~/.emacs.d/show-whitespace-mode.el")
 (load-file "~/.emacs.d/shill-mode.el")
 (load-file "~/.emacs.d/scribble.el")
