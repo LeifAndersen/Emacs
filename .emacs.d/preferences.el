@@ -20,6 +20,8 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message "")
 (if (display-graphic-p)
-    (tool-bar-mode -1))
+    (progn
+      (tool-bar-mode -1)
+      (scroll-bar-mode -1)))
 ;;(menu-bar-mode -99)
 (setq font-lock-defaults-alist nil)
