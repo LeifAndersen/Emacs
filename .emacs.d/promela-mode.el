@@ -597,22 +597,22 @@ indents the current line before running a regular newline-and-indent."
 (defun promela-insert-and-indent ()
   "Insert the last character typed and re-indent the current line"
   (interactive)
-  (insert last-command-char)
+  (insert last-command-event)
   (save-excursion (promela-indent-command)))
 
 (defun promela-open-delimiter ()
   "Inserts the open and matching close delimiters, indenting as appropriate."
   (interactive)
-  (insert last-command-char)
+  (insert last-command-event)
   (if (and promela-auto-match-delimiter (not (promela-inside-comment-p)))
       (save-excursion
-        (insert (cdr (assq last-command-char promela-matching-delimiter-alist)))
+        (insert (cdr (assq last-command-event promela-matching-delimiter-alist)))
         (promela-indent-command))))
 
 (defun promela-close-delimiter ()
   "Inserts and indents a close delimiter."
   (interactive)
-  (insert last-command-char)
+  (insert last-command-event)
   (if (not (promela-inside-comment-p))
       (save-excursion (promela-indent-command))))
 
