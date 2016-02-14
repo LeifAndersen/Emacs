@@ -330,7 +330,7 @@
   (when (eq system-type 'darwin)
     (set-face-attribute 'default nil :font "Monospace 35" :height 300)))
 
-(run-at-time 15 nil 'fix-font)
+(run-at-time 5 nil 'fix-font)
 
 ;; Set auto-mode-alist
 (setq auto-mode-alist
