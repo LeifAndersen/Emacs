@@ -1,10 +1,16 @@
 (defun call-drracket (text)
   (shell-command (concat "drracket -- '" text "' &")))
 
+(defun call-drracket-osx (text)
+  (shell-command (concat "open --'" text "'")))
+
 (defun drracket ()
   "Open Drracket With current file"
   (interactive)
-  (call-drracket (buffer-file-name)))
+  (unless (eq system-type 'darwin)
+    (call-drracket (buffer-file-name)))
+  (when (eq system-type 'darwin)
+    (call-drracket-osx (buffer-file-name))))
 
 (setq racket-mode-pretty-lambda nil)
 
