@@ -2,7 +2,7 @@
   (shell-command (concat "drracket -- '" text "' &")))
 
 (defun call-drracket-osx (text)
-  (shell-command (concat "open --'" text "'")))
+  (shell-command (concat "open -- '" text "'")))
 
 (defun drracket ()
   "Open Drracket With current file"
